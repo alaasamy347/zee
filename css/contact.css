@@ -1,0 +1,196 @@
+.section-masthead{
+    padding-top: 30vh;
+    padding-bottom: 10vh;
+    z-index: 50;
+    background-color: var(--color-dark-1);
+}
+.page-wrapper__content {
+    position: relative;
+    overflow: hidden;
+    z-index: 50;
+}
+.section-masthead__inner {
+    position: relative;
+    overflow: hidden;
+    z-index: 50;
+}
+.section-masthead__header .section-masthead__subheading{color: #fff}
+.small-caps {
+    font-size: calc(10 * 1px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    text-transform: uppercase;
+    color: var(--color-gray-1);
+}
+.w-100 {
+    width: 100%!important;
+}
+.section-masthead h2{color: #fff}
+.section__headline {
+    display: block;
+    margin: 20px auto;
+    width: calc(1 * (60 * 1px));
+    height: 2px;
+    background-color: var(--color-pink);
+}
+.no-gutters {
+    padding-left: 0;
+    padding-right: 0;
+}
+.py-1 {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.my-2 {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.figure-info__option {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 17px;
+    font-family: 'zee-bold';
+    color: #000;
+}
+.figure-info__value {
+    margin-top: 0;
+    margin-bottom: 7px;
+    font-size: 15px;
+}
+.figure-info__value span{color: var(--color-pink)}
+.text-center .section-content__text {
+    margin-left: auto;
+    margin-right: auto;
+}
+.form-contact_paddings {
+    padding: 80px;
+}
+.form {
+    width: 100%;
+}
+.input-float {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+}
+.input-float__input {
+    display: block;
+    width: 100%;
+    width: 100%;
+    border-bottom: 1px solid var(--color-pink);
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    outline: 0;
+    padding: 10px 0 4px;
+    transition: all .2s cubic-bezier(.785,.135,.15,.86);
+    background-color: transparent;
+    border-radius: 0;
+    color: inherit;
+}
+.input-float__label {
+    position: absolute;
+    top: 0.75em;
+    left: 0;
+    margin: auto;
+    display: block;
+    font-size: 16px;
+    transition: all .2s cubic-bezier(.785,.135,.15,.86);
+    transform-origin: left center;
+    cursor: text;
+    color: var(--color-gray-1);
+}
+.input-float__input:focus{border-color: var(--color-dark-1)}
+.form__error {
+    display: block;
+    font-size: 12px;
+    color: red;
+    text-align: left;
+    margin-top: 4px;
+}
+.input-float__input_textarea {
+    resize: none;
+    min-height: 200px
+}
+
+.input-float__input_focused+.input-float__label,.input-float__input_not-empty+.input-float__label {
+    transform: scale(.8571) translateY(-1.75rem)
+}
+
+.input-float__input_focused {
+    border-color: var(--color-dark-1)
+}
+
+.input-float__input_focused+.input-float__label {
+    color: var(--color-dark-1)
+}
+
+.input-search__input {
+    padding-right: 30px
+}
+
+.input-search__submit {
+    display: inline-block;
+    font-size: 18px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 12px;
+    bottom: 0;
+    margin: auto;
+    background: 0 0;
+    border: none;
+    color: var(--color-gray-1);
+    outline: 0;
+    transition: all .2s cubic-bezier(.785,.135,.15,.86);
+    cursor: pointer
+}
+
+.input-search__submit:hover {
+    color: var(--color-dark-3)
+}
+
+.input-search__submit:focus {
+    outline: 0
+}
+.section-contacts .no-gutters{
+    box-shadow: 0 40px 70px -5px rgb(149 164 175 / 40%);
+    margin:100px auto
+}
+.contact-info{padding :70px;}
+.section-form{
+    box-shadow: 0 40px 70px -5px rgb(149 164 175 / 40%);
+    margin-bottom: 100px;
+}
+.section-form h3{
+    margin-bottom: 30px;
+}
+.form__col {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+.form__col_submit {
+    margin-top: 1.5em;
+    margin-bottom: 0;
+}
+
+
+@media screen and (max-width: 990px){
+    .contact-info {
+        padding: 50px 20px;
+    }
+    .form-contact_paddings {
+        padding: 50px 20px;
+    }
+}
+
+@media screen and (min-width: 992px){
+    .py-md-3 {
+        padding-top: 3em!important;
+        padding-bottom: 3em!important;
+    }
+}

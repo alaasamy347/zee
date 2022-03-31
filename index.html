@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="en" class="Zee">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Zee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <link rel="preload" href="fonts/Avenir.otf" as="font" type="font/otf" crossorigin='anonymous'>
+    <link rel="preload" href="fonts/kabel_black.otf" as="font" type="font/otf" crossorigin='anonymous'>
+    <meta name="theme-color" content="#000">
+    <meta name="description" content="zee" />
+    <link rel="icon" type="image/x-icon" href="img/logo.webp">
+    <link rel="preload" type="text/css" href="css/vendor.css" media='all' as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" type="text/css" href="css/swiper.min.css" media='all' as="style" onload="this.rel='stylesheet'" >
+
+    <link rel="preload" type="text/css" href="css/header.css" media='all' as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" type="text/css" href="css/preloader.css" media='all' as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" type="text/css" href="css/main.css" media='all' as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" type="text/css" href="css/mobile-menu-bottom.css" media='all' as="style" onload="this.rel='stylesheet'">
+    
+    <style>
+    .preloader{display:flex;align-items:center;justify-content:center;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:99;background-color:#fff;overflow:hidden}.preloader__circle{position:fixed;top:50%;left:50%;right:0;transform:translate(-50%,-50%);width:100%;height:100%;border-radius:100%;z-index:1;pointer-events:none}.preloader__content{position:fixed;top:50%;left:50%;width:100%;height:100%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;flex-wrap:wrap;padding:30px;width:100%;height:100%;max-height:calc(100vh - var(--gutter-vertical) * 3)}.preloader__header{width:100%}.preloader__counter{white-space:nowrap}.preloader__counter-number{display:inline-block;width:40px}.preloader__counter-current{text-align:right}.preloader__counter-total{text-align:left}.preloader__curtain-svg{width:100%;height:100%;fill:#ccc}.preloader__curtain{position:absolute;top:0;left:0;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center}.preloader__curtain-curve{visibility:hidden}.preloader__curtain-normal{visibility:visible}.spinner{position:fixed;left:var(--gutter-horizontal);bottom:calc(var(--fix-bar-vh,30px) + 15px);width:30px;height:30px;z-index:10000;-webkit-animation:rotator 1.2s ease-in-out infinite;animation:rotator 1.2s ease-in-out infinite;opacity:0;visibility:hidden}@-webkit-keyframes rotator{0%{transform:rotate(0)}100%{transform:rotate(270deg)}}@keyframes rotator{0%{transform:rotate(0)}100%{transform:rotate(270deg)}}.spinner__path{stroke:var(--color-gray-1);stroke-dasharray:202;stroke-dashoffset:0;transform-origin:center;-webkit-animation:dash 1.2s ease-in-out infinite;animation:dash 1.2s ease-in-out infinite}@-webkit-keyframes dash{0%{stroke-dashoffset:202;transform:rotate(0)}50%{stroke-dashoffset:50.5;transform:rotate(135deg)}100%{stroke-dashoffset:202;transform:rotate(450deg)}}@keyframes dash{0%{stroke-dashoffset:202;transform:rotate(0)}50%{stroke-dashoffset:50.5;transform:rotate(135deg)}100%{stroke-dashoffset:202;transform:rotate(450deg)}}@media (max-width:900px){.header-curtain{z-index:0}}
+    </style>
+    <link rel="preload" type="text/css" href="css/footer.css" media='all' as="style" onload="this.rel='stylesheet'">
+</head>
+<body>
+  <div class="preloader text-center bg-dark-2" id="js-preloader" data-arts-theme-text="light">
+    <div class="preloader__content">
+      <div class="preloader__header mt-auto">
+        <div class="preloader__heading h2">Zee</div>
+        <div class="preloader__subline small-caps mt-1">Make moves</div>
+      </div>
+      <div class="preloader__counter h5"><span class="preloader__counter-number preloader__counter-current">0</span><span class="preloader__counter-divider">&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="preloader__counter-number preloader__counter-total">100</span></div>
+      <div class="preloader__circle"></div>
+    </div>
+  </div>
+      
+  <!-- Loading Spinner -->
+  <svg class="spinner d-lg-none" id="js-spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+    <circle class="spinner__path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+  </svg>
+      
+  <!-- page  transition -->
+  <div class="curtain transition-curtain" id="js-page-transition-curtain">
+    <div class="curtain__wrapper-svg">
+      <svg class="curtain-svg" viewBox="0 0 1920 1080" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <path class="curtain-svg__normal" d="M0,0 C305.333333,0 625.333333,0 960,0 C1294.66667,0 1614.66667,0 1920,0 L1920,1080 C1614.66667,1080 1294.66667,1080 960,1080 C625.333333,1080 305.333333,1080 0,1080 L0,0 Z"></path>
+        <path class="curtain-svg__curve curtain-svg__curve_top-desktop" d="M0,300 C305.333333,100 625.333333,0 960,0 C1294.66667,0 1614.66667,100 1920,300 L1920,1080 C1614.66667,1080 1294.66667,1080 960,1080 C625.333333,1080 305.333333,1080 0,1080 L0,300 Z"></path>
+        <path class="curtain-svg__curve curtain-svg__curve_top-mobile" d="M0,150 C305.333333,50 625.333333,0 960,0 C1294.66667,0 1614.66667,50 1920,150 L1920,1080 C1614.66667,1080 1294.66667,1080 960,1080 C625.333333,1080 305.333333,1080 0,1080 L0,150 Z"></path>
+        <path class="curtain-svg__curve curtain-svg__curve_bottom-desktop" d="M0,0 C305.333333,0 625.333333,0 960,0 C1294.66667,0 1614.66667,0 1920,0 L1920,1080 C1614.66667,980 1294.66667,930 960,930 C625.333333,930 305.333333,980 0,1080 L0,0 Z"></path>
+        <path class="curtain-svg__curve curtain-svg__curve_bottom-mobile" d="M0,0 C305.333333,0 625.333333,0 960,0 C1294.66667,0 1614.66667,0 1920,0 L1920,1080 C1614.66667,1030 1294.66667,1005 960,1005 C625.333333,1005 305.333333,1030 0,1080 L0,0 Z"></path>
+      </svg>
+    </div>
+  </div>
+      
+  <!-- header curtain show/hide -->
+  <div class="header-curtain curtain" id="js-header-curtain">
+    <div class="curtain__wrapper-svg">
+      <svg class="curtain-svg" viewBox="0 0 1920 1080" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <path class="curtain-svg__normal" d="M0,0 C305.333333,0 625.333333,0 960,0 C1294.66667,0 1614.66667,0 1920,0 L1920,1080 C1614.66667,1080 1294.66667,1080 960,1080 C625.333333,1080 305.333333,1080 0,1080 L0,0 Z"></path>
+        <path class="curtain-svg__curve curtain-svg__curve_top-desktop" d="M0,300 C305.333333,100 625.333333,0 960,0 C1294.66667,0 1614.66667,100 1920,300 L1920,1080 C1614.66667,1080 1294.66667,1080 960,1080 C625.333333,1080 305.333333,1080 0,1080 L0,300 Z"></path>
+        <path class="curtain-svg__curve curtain-svg__curve_top-mobile" d="M0,150 C305.333333,50 625.333333,0 960,0 C1294.66667,0 1614.66667,50 1920,150 L1920,1080 C1614.66667,1080 1294.66667,1080 960,1080 C625.333333,1080 305.333333,1080 0,1080 L0,150 Z"></path>
+        <path class="curtain-svg__curve curtain-svg__curve_bottom-desktop" d="M0,0 C305.333333,0 625.333333,0 960,0 C1294.66667,0 1614.66667,0 1920,0 L1920,1080 C1614.66667,980 1294.66667,930 960,930 C625.333333,930 305.333333,980 0,1080 L0,0 Z"></path>
+        <path class="curtain-svg__curve curtain-svg__curve_bottom-mobile" d="M0,0 C305.333333,0 625.333333,0 960,0 C1294.66667,0 1614.66667,0 1920,0 L1920,1080 C1614.66667,1030 1294.66667,1005 960,1005 C625.333333,1005 305.333333,1030 0,1080 L0,0 Z"></path>
+      </svg>
+    </div>
+  </div>
+
+  <!-- - header curtain show/hide -->
+  <div class="header-curtain header-curtain_transition curtain" id="js-header-curtain-transition">
+    <div class="curtain__wrapper-svg">
+      <svg class="curtain-svg" viewBox="0 0 1920 1080" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <path class="curtain-svg__normal" d="M0,0 C305.333333,0 625.333333,0 960,0 C1294.66667,0 1614.66667,0 1920,0 L1920,1080 C1614.66667,1080 1294.66667,1080 960,1080 C625.333333,1080 305.333333,1080 0,1080 L0,0 Z"></path>
+        <path class="curtain-svg__curve curtain-svg__curve_top-desktop" d="M0,300 C305.333333,100 625.333333,0 960,0 C1294.66667,0 1614.66667,100 1920,300 L1920,1080 C1614.66667,1080 1294.66667,1080 960,1080 C625.333333,1080 305.333333,1080 0,1080 L0,300 Z"></path>
+        <path class="curtain-svg__curve curtain-svg__curve_top-mobile" d="M0,150 C305.333333,50 625.333333,0 960,0 C1294.66667,0 1614.66667,50 1920,150 L1920,1080 C1614.66667,1080 1294.66667,1080 960,1080 C625.333333,1080 305.333333,1080 0,1080 L0,150 Z"></path>
+        <path class="curtain-svg__curve curtain-svg__curve_bottom-desktop" d="M0,0 C305.333333,0 625.333333,0 960,0 C1294.66667,0 1614.66667,0 1920,0 L1920,1080 C1614.66667,980 1294.66667,930 960,930 C625.333333,930 305.333333,980 0,1080 L0,0 Z"></path>
+        <path class="curtain-svg__curve curtain-svg__curve_bottom-mobile" d="M0,0 C305.333333,0 625.333333,0 960,0 C1294.66667,0 1614.66667,0 1920,0 L1920,1080 C1614.66667,1030 1294.66667,1005 960,1005 C625.333333,1005 305.333333,1030 0,1080 L0,0 Z"></path>
+      </svg>
+    </div>
+  </div>
+   
+  <!-- Cursor Follower-->
+  <div class="cursor" id="js-cursor">
+    <div class="cursor__wrapper">
+      <div class="cursor__follower">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <circle id="inner" cx="25" cy="25" r="24" style="opacity: 0.6;"></circle>
+          <circle id="outer" cx="25" cy="25" r="24" style="stroke-dashoffset: 252.327; stroke-dasharray: 0px, 999999px;"></circle>
+        </svg>
+      </div>
+      <!-- cursor arrows -->
+      <div class="cursor__arrows">
+        <div class="cursor__arrow cursor__arrow_up material-icons">keyboard_arrow_up</div>
+        <div class="cursor__arrow cursor__arrow_down material-icons">keyboard_arrow_down</div>
+        <div class="cursor__arrow cursor__arrow_left material-icons">keyboard_arrow_left</div>
+        <div class="cursor__arrow cursor__arrow_right material-icons">keyboard_arrow_right</div>
+      </div>
+      <div class="cursor__label"></div>
+      <div class="cursor__icon material-icons"></div>
+    </div>
+  </div>
+      
+  <!-- Top bar -->
+  <div class="top-bar bg-dark-1" >
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6 col-lg-4 social-media">
+          <div class="social-links">
+            <ul class="social">
+              <li class="social__item">
+                <a class="facebook" data-arts-cursor="data-arts-cursor" data-arts-cursor-hide-native="true" data-arts-cursor-scale="0" data-arts-cursor-magnetic="data-arts-cursor-magnetic" href="https://www.facebook.com/Zeeofficialeg/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' fill='#fff' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 48.605 48.605" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><path d="M34.094,8.688h4.756V0.005h-8.643c-0.721-0.03-9.51-0.198-11.788,8.489c-0.033,0.091-0.761,2.157-0.761,6.983l-7.903,0.024   v9.107l7.913-0.023v24.021h12.087v-24h8v-9.131h-8v-2.873C29.755,10.816,30.508,8.688,34.094,8.688z M35.755,17.474v5.131h-8v24   h-8.087V22.579l-7.913,0.023v-5.107l7.934-0.023l-0.021-1.017c-0.104-5.112,0.625-7.262,0.658-7.365   c1.966-7.482,9.473-7.106,9.795-7.086l6.729,0.002v4.683h-2.756c-4.673,0-6.338,3.054-6.338,5.912v4.873L35.755,17.474   L35.755,17.474z" fill="currentColor" data-original="#000000"/></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                </a>
+              </li>
+              <li class="social__item">
+                <a class="instagram" data-arts-cursor="data-arts-cursor" data-arts-cursor-hide-native="true" data-arts-cursor-scale="0" data-arts-cursor-magnetic="data-arts-cursor-magnetic" href="https://www.instagram.com/zee_officialeg/">
+                  <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' fill='#fff' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512.00096 512.00096" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path xmlns="http://www.w3.org/2000/svg" d="m373.40625 0h-234.8125c-76.421875 0-138.59375 62.171875-138.59375 138.59375v234.816406c0 76.417969 62.171875 138.589844 138.59375 138.589844h234.816406c76.417969 0 138.589844-62.171875 138.589844-138.589844v-234.816406c0-76.421875-62.171875-138.59375-138.59375-138.59375zm108.578125 373.410156c0 59.867188-48.707031 108.574219-108.578125 108.574219h-234.8125c-59.871094 0-108.578125-48.707031-108.578125-108.574219v-234.816406c0-59.871094 48.707031-108.578125 108.578125-108.578125h234.816406c59.867188 0 108.574219 48.707031 108.574219 108.578125zm0 0" fill="currentColor" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m256 116.003906c-77.195312 0-139.996094 62.800782-139.996094 139.996094s62.800782 139.996094 139.996094 139.996094 139.996094-62.800782 139.996094-139.996094-62.800782-139.996094-139.996094-139.996094zm0 249.976563c-60.640625 0-109.980469-49.335938-109.980469-109.980469 0-60.640625 49.339844-109.980469 109.980469-109.980469 60.644531 0 109.980469 49.339844 109.980469 109.980469 0 60.644531-49.335938 109.980469-109.980469 109.980469zm0 0" fill="currentColor" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m399.34375 66.285156c-22.8125 0-41.367188 18.558594-41.367188 41.367188 0 22.8125 18.554688 41.371094 41.367188 41.371094s41.371094-18.558594 41.371094-41.371094-18.558594-41.367188-41.371094-41.367188zm0 52.71875c-6.257812 0-11.351562-5.09375-11.351562-11.351562 0-6.261719 5.09375-11.351563 11.351562-11.351563 6.261719 0 11.355469 5.089844 11.355469 11.351563 0 6.257812-5.09375 11.351562-11.355469 11.351562zm0 0" fill="currentColor" data-original="#000000" class=""/></g></svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- scrollamount="5" scrolldelay="300" onmouseover="this.stop()" onmouseout="this.start()" truespeed="100" -->
+        <div class="col-sm-6 col-lg-4 marquee">
+          <div class="marquee" width="100%" height="30px" >
+            <p>This is a sample scrolling text</p>
+            <p>This is a s down.</p>
+            <p>uj tyhrt thsthtr ls texts to down.</p>
+          </div>
+        </div> 
+        <div class="col-sm-6 col-lg-4">
+          <div class="menu-item search">
+            <span class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' fill='#fff' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 612.01 612.01" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g id="_x34__4_"><g><path d="M606.209,578.714L448.198,423.228C489.576,378.272,515,318.817,515,253.393C514.98,113.439,399.704,0,257.493,0     C115.282,0,0.006,113.439,0.006,253.393s115.276,253.393,257.487,253.393c61.445,0,117.801-21.253,162.068-56.586     l158.624,156.099c7.729,7.614,20.277,7.614,28.006,0C613.938,598.686,613.938,586.328,606.209,578.714z M257.493,467.8     c-120.326,0-217.869-95.993-217.869-214.407S137.167,38.986,257.493,38.986c120.327,0,217.869,95.993,217.869,214.407     S377.82,467.8,257.493,467.8z" fill="currentColor" data-original="#000000"/></g></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+            </span>
+            <input type="search" id="search" placeholder="What are you looking for?" />
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Cart section -->
+  <div id="_desktop_blockcart-content" class="blockcart dropdown-menu-custom dropdown-menu">
+    <div id="blockcart-content" class="blockcart-content">
+      <div class="cart-title">
+        <button type="button" id="js-cart-close" class="close" data-arts-cursor="data-arts-cursor" data-arts-cursor-hide-native="true" data-arts-cursor-scale="0" data-arts-cursor-magnetic="data-arts-cursor-magnetic">
+            <span>×</span>
+        </button>
+        <span class="modal-title">Your cart</span>
+      </div>
+
+      <div class="empty-cart">
+        <img src="img/clear-bag.webp"  width="55" height="55" alt='zee'/>
+        <p>Your cart is empty</p>
+      </div>
+      <div class="cart-buttons text-center">
+        <a class="button button_solid button_black pt-1 pb-1 mb-0-5" data-hover="Shop now" href="#"><span class="button__label-hover">Shop now</span></a>
+      </div>
+      <!-- <ul class="cart-products">
+          <li>
+            <div class="cart-product-line no-gutters align-items-center">
+              <span class="product-image media-middle">
+                <a href="https://rubiktheme.com/demo/rb_azeno_demo/en/kids/9-22-mountain-fox-cushion.html#/8-color-white">
+                  <img src="./Azeno - Sport Store_files/mountain-fox-cushion.jpg" alt="Older Kids\' (Girls\') Trousers" class="img-fluid" loading="lazy"></a>    
+              </span>
+            <div class="product-info">
+              <a class="product-name" href="https://rubiktheme.com/demo/rb_azeno_demo/en/kids/9-22-mountain-fox-cushion.html#/8-color-white">Older Kids' (Girls') Trousers</a>
+
+              <div class="product-attributes text-muted">
+                <div class="product-line-info">
+                  <span class="label">Color:</span>
+                  <span class="value">White</span>
+                </div>
+              </div>
+              <div class="product-price-quantity">
+                <span class="text-muted">1 x</span>
+                <span class="product-price">$18.90</span> 
+              </div>
+            </div>
+            <div class="remove-cart">
+                <a class="remove-from-cart" rel="nofollow" href="#" data-link-action="delete-from-cart" data-link-place="cart-preview" data-id-product="9" data-id-product-attribute="22" data-id-customization="" title="remove from cart">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="cart-product-line no-gutters align-items-center">
+            <span class="product-image media-middle">
+              <a href="#">
+                <img src="./Azeno - Sport Store_files/mug-today-is-a-good-day.jpg" alt="Medium Support Bra" class="img-fluid" loading="lazy"></a>    
+            </span>
+          <div class="product-info">
+            <a class="product-name" href="#">Medium Support Bra</a>
+            <div class="product-price-quantity">
+              <span class="text-muted">1 x</span>
+              <span class="product-price">$11.90</span> 
+            </div>
+          </div>
+          <div class="remove-cart">
+            <a class="remove-from-cart" rel="nofollow" href="https://rubiktheme.com/demo/rb_azeno_demo/en/cart?delete=1&amp;id_product=8&amp;id_product_attribute=0" data-link-action="delete-from-cart" data-link-place="cart-preview" data-id-product="8" data-id-product-attribute="0" data-id-customization="" title="remove from cart">
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </li>
+      </ul>
+      <div class="cart-subtotals">
+        <p class="cart-products-count">There are 2 items in your cart.</p>
+          <div class="products clearfix">
+            <span class="label">Subtotal</span>
+            <span class="price-total value float-right">$30.80</span>
+          </div>
+      </div> -->
+      <!-- <div class="cart-buttons text-center">
+        <a rel="nofollow" class="btn btn-secondary btn-block" href="https://rubiktheme.com/demo/rb_azeno_demo/en/cart?action=show">Cart</a>
+        <a href="https://rubiktheme.com/demo/rb_azeno_demo/en/order" class="btn btn-primary btn-block btn-lg">Checkout</a>
+      </div> -->
+    </div>
+  </div>
+  <div class="cart-overlay"></div>
+
+  <!-- Floating cart -->
+  <!-- <div class="floating-cart">
+    <a href="javascript:void(0)">
+      <svg xmlns="http://www.w3.org/2000/svg" width='25' height='25' fill='#fff' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 321.2 321.2" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M306.4,313.2l-24-223.6c-0.4-3.6-3.6-6.4-7.2-6.4h-44.4V69.6c0-38.4-31.2-69.6-69.6-69.6c-38.4,0-69.6,31.2-69.6,69.6    v13.6H46c-3.6,0-6.8,2.8-7.2,6.4l-24,223.6c-0.4,2,0.4,4,1.6,5.6c1.2,1.6,3.2,2.4,5.2,2.4h278c2,0,4-0.8,5.2-2.4    C306,317.2,306.8,315.2,306.4,313.2z M223.6,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4    C217.2,126.4,220,123.6,223.6,123.6z M106,69.6c0-30.4,24.8-55.2,55.2-55.2c30.4,0,55.2,24.8,55.2,55.2v13.6H106V69.6z     M98.8,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4C92.4,126.4,95.2,123.6,98.8,123.6z M30,306.4    L52.4,97.2h39.2v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2    V97.2h110.4v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2V97.2    H270l22.4,209.2H30z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+    </a>
+    <span class="cart-products-count-btn">0</span>
+  </div> -->
+
+  <!-- PAGE Menu -->
+  <header class="header header_menu-right header_fixed container-fluid js-header-sticky" id="page-header" data-arts-theme-text="dark" data-arts-header-sticky-theme="bg-white" data-arts-header-logo="primary" data-arts-header-sticky-logo="primary" data-arts-header-overlay-theme="light" data-arts-header-overlay-background="#ffffff">
+    <!-- top bar -->
+    <div class="header__container header__controls">
+      <div class="row justify-content-between align-items-center">
+        <!-- logo -->
+        <div class="col-auto header__col header__col-left">
+          <a class="logo" href="index.html">
+            <div class="logo__wrapper-img">
+              <img class="logo__img-primary" src="img/dark-logo.webp" alt="Zee" height="55" width='60' />
+            </div>
+          </a>
+        </div>
+        <!-- desktop menu-->
+        <div class="col-auto header__col menu-desktop">
+          <ul class="menu js-menu menu-flex">
+            <li class="menu-item"><a href="pages/shop.html">New Arrival</a></li>
+            <li class="menu-item-has-children"><a href="pages/shop.html">shop</a>
+              <ul class="sub-menu">
+                <li class="menu-item"><a href="pages/shop.html">Zee classics</a></li>
+                <li class="menu-item"><a href="pages/shop.html">EVA</a></li>
+                <li class="menu-item"><a href="pages/shop.html">WAVE</a></li>
+                <li class="menu-item"><a href="pages/shop.html">Brave new world</a></li>
+                <li class="menu-item"><a href="pages/shop.html">DNA</a></li>
+              </ul>
+            </li>
+            <li class="menu-item-has-children"><a href="#">Collection story</a>
+              <ul class="sub-menu">
+                <li class="menu-item"><a href="#">DNA</a></li>
+                <li class="menu-item"><a href="#">WAVE</a></li>
+                <li class="menu-item"><a href="#">Brave new world</a></li>
+              </ul>
+            </li>
+            <li class="menu-item-has-children"><a href="#">collaborations</a>
+              <ul class="sub-menu">
+                <li class="menu-item"><a href="#">kojak x Zee</a></li>
+                <li class="menu-item"><a href="#">Gff x Zee</a></li>
+              </ul>
+            </li>
+            <li class="menu-item"><a href="#">Zee story</a></li>
+            <li class="menu-item"><a href="pages/contact.html">Contact zee</a></li>
+            <li class="menu-item"><a href="#" class="pink">Sale</a></li>
+
+            <ul class="user-icon">
+              <li class="menu-item-has-children wishlist">
+                <a href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" d="m489.864 101.1a130.755 130.755 0 0 0 -60.164-50.89c-28.112-11.8-59.687-13.924-91.309-6.127-28.978 7.146-57.204 22.645-82.391 45.129-25.189-22.486-53.418-37.986-82.4-45.131-31.623-7.8-63.2-5.674-91.312 6.134a130.755 130.755 0 0 0 -60.161 50.9c-15.02 23.744-22.661 52.619-22.097 83.5 2.504 137.285 207.006 262.122 247.976 285.755a16 16 0 0 0 15.989 0c40.974-23.636 245.494-148.495 247.976-285.779.558-30.879-7.086-59.751-22.107-83.491zm-9.887 82.916c-.8 44.388-30.39 96.139-85.563 149.655-51.095 49.558-109.214 86.912-138.414 104.293-29.2-17.378-87.31-54.727-138.4-104.287-55.176-53.512-84.766-105.259-85.576-149.646-.884-48.467 22.539-87.462 62.656-104.313a106.644 106.644 0 0 1 41.511-8.238c36.795 0 75.717 17.812 108.4 51.046a16 16 0 0 0 22.815 0c45.406-46.17 102.85-62.573 149.9-42.811 40.121 16.845 63.547 55.834 62.671 104.298z" fill="currentColor" data-original="#000000"/></g></svg>
+                </a>
+                <span class="wishlist-products-count-btn">0</span>
+                <!-- <ul class="sub-menu">
+                <li class="menu-item"><a href="#">Hi, user</a></li>
+                <li class="menu-item"><a href="#">Profile</a></li>
+                <li class="menu-item"><a href="#">Logout</a></li>
+              </ul> -->
+              </li>
+              <li class="menu-item-has-children login">
+                <a href="#" >
+                  <svg xmlns="http://www.w3.org/2000/svg" width='23' height='23' fill='#fff' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M256,0c-74.439,0-135,60.561-135,135s60.561,135,135,135s135-60.561,135-135S330.439,0,256,0z M256,240    c-57.897,0-105-47.103-105-105c0-57.897,47.103-105,105-105c57.897,0,105,47.103,105,105C361,192.897,313.897,240,256,240z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M423.966,358.195C387.006,320.667,338.009,300,286,300h-60c-52.008,0-101.006,20.667-137.966,58.195    C51.255,395.539,31,444.833,31,497c0,8.284,6.716,15,15,15h420c8.284,0,15-6.716,15-15    C481,444.833,460.745,395.539,423.966,358.195z M61.66,482c7.515-85.086,78.351-152,164.34-152h60    c85.989,0,156.825,66.914,164.34,152H61.66z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg></a>
+                  <p>Hi, user</p>
+                <!-- <ul class="sub-menu">
+                  <li class="menu-item"><a href="#">Hi, user</a></li>
+                  <li class="menu-item"><a href="#">Profile</a></li>
+                  <li class="menu-item"><a href="#">Logout</a></li>
+                </ul> -->
+              </li>
+              <li class="menu-item-has-children cart">
+                <a href="javascript:void(0)">
+                  <svg xmlns="http://www.w3.org/2000/svg" width='25' height='25' fill='#fff' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 321.2 321.2" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M306.4,313.2l-24-223.6c-0.4-3.6-3.6-6.4-7.2-6.4h-44.4V69.6c0-38.4-31.2-69.6-69.6-69.6c-38.4,0-69.6,31.2-69.6,69.6    v13.6H46c-3.6,0-6.8,2.8-7.2,6.4l-24,223.6c-0.4,2,0.4,4,1.6,5.6c1.2,1.6,3.2,2.4,5.2,2.4h278c2,0,4-0.8,5.2-2.4    C306,317.2,306.8,315.2,306.4,313.2z M223.6,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4    C217.2,126.4,220,123.6,223.6,123.6z M106,69.6c0-30.4,24.8-55.2,55.2-55.2c30.4,0,55.2,24.8,55.2,55.2v13.6H106V69.6z     M98.8,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4C92.4,126.4,95.2,123.6,98.8,123.6z M30,306.4    L52.4,97.2h39.2v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2    V97.2h110.4v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2V97.2    H270l22.4,209.2H30z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                </a>
+                <span class="cart-products-count-btn">0</span>
+              </li>
+            </ul>
+
+          </ul>
+        </div>
+        <!-- burger icon -->
+        <div class="col-auto header__col d-lg-none mobile">
+
+          <!-- <ul class="user-icon">
+            <li class="menu-item-has-children login">
+              <a href="#" >
+                <svg xmlns="http://www.w3.org/2000/svg" width='23' height='23' fill='#fff' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M256,0c-74.439,0-135,60.561-135,135s60.561,135,135,135s135-60.561,135-135S330.439,0,256,0z M256,240    c-57.897,0-105-47.103-105-105c0-57.897,47.103-105,105-105c57.897,0,105,47.103,105,105C361,192.897,313.897,240,256,240z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M423.966,358.195C387.006,320.667,338.009,300,286,300h-60c-52.008,0-101.006,20.667-137.966,58.195    C51.255,395.539,31,444.833,31,497c0,8.284,6.716,15,15,15h420c8.284,0,15-6.716,15-15    C481,444.833,460.745,395.539,423.966,358.195z M61.66,482c7.515-85.086,78.351-152,164.34-152h60    c85.989,0,156.825,66.914,164.34,152H61.66z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg></a>
+                <p>Hi, user</p>
+            </li>
+          </ul> -->
+
+          <div class="header__burger" id="js-burger" data-arts-cursor="data-arts-cursor" data-arts-cursor-scale="1.7" data-arts-cursor-magnetic="data-arts-cursor-magnetic" data-arts-cursor-hide-native="true">
+            <div class="header__burger-line"></div>
+            <div class="header__burger-line"></div>
+            <div class="header__burger-line"></div>
+          </div>
+        </div>
+        <!-- "back" button for submenu nav -->
+        <div class="header__overlay-menu-back" id="js-submenu-back">
+          <div class="arrow arrow-left js-arrow arrow_mini" data-arts-cursor="data-arts-cursor" data-arts-cursor-hide-native="true" data-arts-cursor-scale="0" data-arts-cursor-magnetic="data-arts-cursor-magnetic">
+            <svg class="svg-circle" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <circle class="circle" cx="30" cy="30" r="29" fill="none"></circle>
+            </svg>
+            <div class="arrow__pointer arrow-left__pointer"></div>
+            <div class="arrow__triangle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- fullscreen overlay container -->
+    <div class="header__wrapper-overlay-menu container-fluid container-fluid_paddings">
+      <!-- fullscreen menu -->
+      <div class="header__wrapper-menu">
+        <ul class="menu-overlay js-menu-overlay">
+          <li class="menu-item"><a class="h4" href="pages/shop.html" data-pjax-link="overlayMenu">
+            <div class="menu-overlay__item-wrapper split-text js-split-text" data-split-text-type="lines">New Arrival</div></a>
+          </li>
+          <li class="menu-item-has-children"><a class="h4" href="pages/shop.html" data-pjax-link="overlayMenu">
+            <div class="menu-overlay__item-wrapper split-text js-split-text" data-split-text-type="lines">Shop</div></a>
+            <ul class="sub-menu">
+              <li class="menu-item"><a class="h5" href="pages/shop.html" data-pjax-link="overlayMenu">
+                <div class="menu-overlay__item-wrapper split-text js-split-text" data-split-text-type="lines">Zee classics</div></a>
+              </li>
+              <li class="menu-item"><a class="h5" href="pages/shop.html" data-pjax-link="overlayMenu">
+                <div class="menu-overlay__item-wrapper split-text js-split-text" data-split-text-type="lines">EVA</div></a>
+              </li>
+              <li class="menu-item"><a class="h5" href="pages/shop.html" data-pjax-link="overlayMenu">
+                <div class="menu-overlay__item-wrapper split-text js-split-text" data-split-text-type="lines">WAVE</div></a>
+              </li>
+              <li class="menu-item"><a class="h5" href="pages/shop.html" data-pjax-link="overlayMenu">
+                <div class="menu-overlay__item-wrapper split-text js-split-text" data-split-text-type="lines">Brave new world</div></a>
+              </li>
+              <li class="menu-item"><a class="h5" href="pages/shop.html" data-pjax-link="overlayMenu">
+                <div class="menu-overlay__item-wrapper split-text js-split-text" data-split-text-type="lines">DNA</div></a>
+              </li>
+            </ul>
+          </li>
+          <li class="menu-item-has-children"><a class="h4" href="#" data-pjax-link="overlayMenu">
+            <div class="menu-overlay__item-wrapper split-text js-split-text" data-split-text-type="lines">Collection story</div></a>
+            <ul class="sub-menu">
+                <li class="menu-item"><a class="h5" href="#" data-pjax-link="overlayMenu">
+                    <div class="menu-overlay__item-wrapper split-text js-split-text" data-split-text-type="lines">DNA</div></a>
+                </li>
+                <li class="menu-item"><a class="h5" href="#" data-pjax-link="overlayMenu">
+                    <div class="menu-overlay__item-wrapper split-text js-split-text" data-split-text-type="lines">WAVE</div></a>
+                </li>
+                <li class="menu-item"><a class="h5" href="#" data-pjax-link="overlayMenu">
+                    <div class="menu-overlay__item-wrapper split-text js-split-text" data-split-text-type="lines">Brave new world</div></a>
+                </li>
+            </ul>
+          </li>
+          <li class="menu-item-has-children"><a class="h4" href="#" data-pjax-link="overlayMenu">
+            <div class="menu-overlay__item-wrapper split-text js-split-text" data-split-text-type="lines">collaborations</div></a>
+            <ul class="sub-menu">
+                <li class="menu-item"><a class="h5" href="#" data-pjax-link="overlayMenu">
+                    <div class="menu-overlay__item-wrapper split-text js-split-text" data-split-text-type="lines">kojak x Zee</div></a>
+                </li>
+                <li class="menu-item"><a class="h5" href="#" data-pjax-link="overlayMenu">
+                    <div class="menu-overlay__item-wrapper split-text js-split-text" data-split-text-type="lines">Gff x Zee</div></a>
+                </li>
+            </ul>
+            </li>
+            <li class="menu-item"><a class="h4" href="#" data-pjax-link="overlayMenu">
+                <div class="menu-overlay__item-wrapper split-text js-split-text" data-split-text-type="lines">Zee story</div></a>
+            </li>
+            <li class="menu-item"><a class="h4" href="#" data-pjax-link="overlayMenu">
+                <div class="menu-overlay__item-wrapper split-text js-split-text" data-split-text-type="lines">Contact zee</div></a>
+            </li>
+            <li class="menu-item"><a class="h4" href="#" data-pjax-link="overlayMenu">
+                <div class="menu-overlay__item-wrapper split-text js-split-text pink" data-split-text-type="lines">Sale</div></a>
+            </li>
+        </ul>
+        <div class="social-links"><div class="social-links">
+          <ul class="social">
+            <li class="social__item">
+              <a class="facebook" data-arts-cursor="data-arts-cursor" data-arts-cursor-hide-native="true" data-arts-cursor-scale="0" data-arts-cursor-magnetic="data-arts-cursor-magnetic" href="https://www.facebook.com/Zeeofficialeg/">
+                <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' fill='#fff' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 48.605 48.605" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><path d="M34.094,8.688h4.756V0.005h-8.643c-0.721-0.03-9.51-0.198-11.788,8.489c-0.033,0.091-0.761,2.157-0.761,6.983l-7.903,0.024   v9.107l7.913-0.023v24.021h12.087v-24h8v-9.131h-8v-2.873C29.755,10.816,30.508,8.688,34.094,8.688z M35.755,17.474v5.131h-8v24   h-8.087V22.579l-7.913,0.023v-5.107l7.934-0.023l-0.021-1.017c-0.104-5.112,0.625-7.262,0.658-7.365   c1.966-7.482,9.473-7.106,9.795-7.086l6.729,0.002v4.683h-2.756c-4.673,0-6.338,3.054-6.338,5.912v4.873L35.755,17.474   L35.755,17.474z" fill="currentColor" data-original="#000000"/></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="instagram" data-arts-cursor="data-arts-cursor" data-arts-cursor-hide-native="true" data-arts-cursor-scale="0" data-arts-cursor-magnetic="data-arts-cursor-magnetic" href="https://www.instagram.com/zee_officialeg/">
+                <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' fill='#fff' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512.00096 512.00096" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path xmlns="http://www.w3.org/2000/svg" d="m373.40625 0h-234.8125c-76.421875 0-138.59375 62.171875-138.59375 138.59375v234.816406c0 76.417969 62.171875 138.589844 138.59375 138.589844h234.816406c76.417969 0 138.589844-62.171875 138.589844-138.589844v-234.816406c0-76.421875-62.171875-138.59375-138.59375-138.59375zm108.578125 373.410156c0 59.867188-48.707031 108.574219-108.578125 108.574219h-234.8125c-59.871094 0-108.578125-48.707031-108.578125-108.574219v-234.816406c0-59.871094 48.707031-108.578125 108.578125-108.578125h234.816406c59.867188 0 108.574219 48.707031 108.574219 108.578125zm0 0" fill="currentColor" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m256 116.003906c-77.195312 0-139.996094 62.800782-139.996094 139.996094s62.800782 139.996094 139.996094 139.996094 139.996094-62.800782 139.996094-139.996094-62.800782-139.996094-139.996094-139.996094zm0 249.976563c-60.640625 0-109.980469-49.335938-109.980469-109.980469 0-60.640625 49.339844-109.980469 109.980469-109.980469 60.644531 0 109.980469 49.339844 109.980469 109.980469 0 60.644531-49.335938 109.980469-109.980469 109.980469zm0 0" fill="currentColor" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m399.34375 66.285156c-22.8125 0-41.367188 18.558594-41.367188 41.367188 0 22.8125 18.554688 41.371094 41.367188 41.371094s41.371094-18.558594 41.371094-41.371094-18.558594-41.367188-41.371094-41.367188zm0 52.71875c-6.257812 0-11.351562-5.09375-11.351562-11.351562 0-6.261719 5.09375-11.351563 11.351562-11.351563 6.261719 0 11.355469 5.089844 11.355469 11.351563 0 6.257812-5.09375 11.351562-11.355469 11.351562zm0 0" fill="currentColor" data-original="#000000" class=""/></g></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- - PAGE HEADER -->
+  <div class="" id="page-wrapper" data-barba="container" data-scrollbar="true" tabindex="-1" style="overflow: hidden; outline: none;">
+    <div class="scroll-content">
+    <main class="page-wrapper__content">
+      <section class="section section-masthead d-none" data-background-color="var(--color-dark-1)"></section>
+
+      <!-- section PROJECTS SLIDER FULLSCREEN -->
+      <section class="section section-fullheight section-projects section-projects-slider bg-dark-1 overflow" data-arts-theme-text="light" data-arts-os-animation>
+        <div class="section-fullheight__inner section-fullheight__inner_mobile text-center">
+          <div class="slider slider-fullscreen-projects js-slider-fullscreen-projects js-slider">
+            <div class="slider-fullscreen-projects__content swiper-container js-slider-fullscreen-projects__content">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="small-caps slider__subheading js-split-text split-text mb-1 pointer-events-none" data-split-text-type="lines, words, chars" data-split-text-set="chars">Wave</div>
+                  <h1 class="h1 slider__heading js-split-text pointer-events-none" data-split-text-type="lines, words, chars">Wave ocean tent</h1>
+                  <div class="slider__wrapper-button-footer"><a class="button button_white button_bordered" data-hover="Shop now" href="#" data-pjax-link="fullscreenSlider"><span class="button__label-hover">Shop now</span></a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="small-caps slider__subheading js-split-text split-text mb-1" data-split-text-type="lines, words, chars" data-split-text-set="chars">DNA</div>
+                  <h1 class="h1 slider__heading js-split-text" data-split-text-type="lines, words, chars">PURIN-BLK</h1>
+                  <div class="slider__wrapper-button-footer"><a class="button button_white button_bordered" data-hover="Shop now" href="#" data-pjax-link="fullscreenSlider"><span class="button__label-hover">Shop now</span></a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="small-caps slider__subheading js-split-text split-text mb-1" data-split-text-type="lines, words, chars" data-split-text-set="chars">WAVE</div>
+                  <h1 class="h1 slider__heading js-split-text" data-split-text-type="lines, words, chars">Wave Sandals</h1>
+                  <div class="slider__wrapper-button-footer"><a class="button button_white button_bordered" data-hover="Shop now" href="#" data-pjax-link="fullscreenSlider"><span class="button__label-hover">Shop now</span></a>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="small-caps slider__subheading js-split-text split-text mb-1" data-split-text-type="lines, words, chars" data-split-text-set="chars">WAVE</div>
+                  <h1 class="h1 slider__heading js-split-text" data-split-text-type="lines, words, chars">Low tide pearl</h1>
+                  <div class="slider__wrapper-button-footer"><a class="button button_white button_bordered" data-hover="Shop now" href="#" data-pjax-link="fullscreenSlider"><span class="button__label-hover">Shop now</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- slider IMAGES -->
+            <div class="slider-fullscreen-projects__images swiper-container js-slider-fullscreen-projects__images" data-mousewheel-enabled="false" data-direction="horizontal" data-transition-effect="enterLeave" data-speed="1200" data-autoplay-enabled="true" data-autoplay-delay="6000" data-counter-style="roman" data-touch-ratio="1.5"  data-drag-class="slider-fullscreen-projects__images_scale-up">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide overflow">
+                  <div class="slider__images-slide-inner js-transition-img overflow" data-swiper-parallax="90%">
+                    <div class="slider__bg swiper-lazy js-transition-img__transformed-el" data-background="img/about.webp"></div>
+                  </div>
+                </div>
+                <div class="swiper-slide overflow">
+                  <div class="slider__images-slide-inner js-transition-img overflow" data-swiper-parallax="90%">
+                    <div class="slider__bg swiper-lazy js-transition-img__transformed-el" data-background="img/slider1.webp"></div>
+                  </div>
+                </div>
+                <div class="swiper-slide overflow">
+                  <div class="slider__images-slide-inner js-transition-img overflow" data-swiper-parallax="90%">
+                    <div class="slider__bg swiper-lazy js-transition-img__transformed-el" data-background="img/banner.webp"></div>
+                  </div>
+                </div>
+                <div class="swiper-slide overflow">
+                  <div class="slider__images-slide-inner js-transition-img overflow" data-swiper-parallax="90%">
+                    <div class="slider__bg swiper-lazy js-transition-img__transformed-el" data-background="img/slider4.webp"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- overlay-->
+              <div class="slider__overlay overlay overlay_dark"></div>
+              <div class="slider__circle"></div>
+            </div>
+            
+            <!-- slider FOOTER -->
+            <div class="slider-fullscreen-projects__footer swiper-container js-slider-fullscreen-projects__footer">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <!-- slider DOTS -->
+                  <div class="slider__dots js-slider__dots">
+                    <div class="slider__dot slider__dot_active">
+                      <svg class="svg-circle" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <circle class="circle" cx="30" cy="30" r="29" fill="none"></circle>
+                      </svg>
+                    </div>
+                    <div class="slider__dot">
+                      <svg class="svg-circle" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <circle class="circle" cx="30" cy="30" r="29" fill="none"></circle>
+                      </svg>
+                    </div>
+                    <div class="slider__dot">
+                      <svg class="svg-circle" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <circle class="circle" cx="30" cy="30" r="29" fill="none"></circle>
+                      </svg>
+                    </div>
+                    <div class="slider__dot">
+                      <svg class="svg-circle" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <circle class="circle" cx="30" cy="30" r="29" fill="none"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- slider ARROWS -->
+            <div class="slider__arrow slider__arrow_left slider__arrow_absolute js-slider__arrow-prev">
+              <div class="arrow arrow-left js-arrow" data-arts-cursor="data-arts-cursor" data-arts-cursor-hide-native="true" data-arts-cursor-scale="0" data-arts-cursor-magnetic="data-arts-cursor-magnetic">
+                <svg class="svg-circle" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <circle class="circle" cx="30" cy="30" r="29" fill="none"></circle>
+                </svg>
+                <div class="arrow__pointer arrow-left__pointer"></div>
+                <div class="arrow__triangle"></div>
+              </div>
+            </div>
+            <div class="slider__arrow slider__arrow_right slider__arrow_absolute js-slider__arrow-next">
+              <div class="arrow arrow-right js-arrow" data-arts-cursor="data-arts-cursor" data-arts-cursor-hide-native="true" data-arts-cursor-scale="0" data-arts-cursor-magnetic="data-arts-cursor-magnetic">
+                <svg class="svg-circle" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <circle class="circle" cx="30" cy="30" r="29" fill="none"></circle>
+                </svg>
+                <div class="arrow__pointer arrow-right__pointer"></div>
+                <div class="arrow__triangle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- - PAGE FOOTER -->
+
+    </div>
+    <div class="scrollbar-track scrollbar-track-x" style="display: none;">
+      <div class="scrollbar-thumb scrollbar-thumb-x" style="width: 1920px; transform: translate3d(0px, 0px, 0px);"></div>
+    </div>
+    <div class="scrollbar-track scrollbar-track-y" style="display: none;">
+      <div class="scrollbar-thumb scrollbar-thumb-y" style="height: 1089px; transform: translate3d(0px, 0px, 0px);"></div>
+    </div>
+  </div>
+
+  <canvas id="js-webgl"></canvas>
+  <!-- PhotoSwipe -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true" data-arts-theme-text="DARK">
+    <!-- background -->
+    <div class="pswp__bg"></div>
+    <!-- slider wrapper -->
+    <div class="pswp__scroll-wrap">
+      <div class="pswp__container">
+        <div class="pswp__item">
+          <div class="pswp__img pswp__img--placeholder"></div>
+        </div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <div class="pswp__ui pswp__ui--hidden">
+        <!-- top bar -->
+        <div class="pswp__top-bar">
+          <div class="pswp__counter"></div>
+          <button class="pswp__button pswp__button--close" title="Close (Esc)" data-arts-cursor="data-arts-cursor" data-arts-cursor-scale="1.2" data-arts-cursor-magnetic="data-arts-cursor-magnetic" data-arts-cursor-hide-native="true"></button>
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen" data-arts-cursor="data-arts-cursor" data-arts-cursor-scale="1.2" data-arts-cursor-magnetic="data-arts-cursor-magnetic" data-arts-cursor-hide-native="true"></button>
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- left arrow -->
+        <div class="pswp__button pswp__button--arrow--left">
+          <div class="arrow arrow-left js-arrow" data-arts-cursor="data-arts-cursor" data-arts-cursor-hide-native="true" data-arts-cursor-scale="0" data-arts-cursor-magnetic="data-arts-cursor-magnetic">
+            <svg class="svg-circle" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <circle class="circle" cx="30" cy="30" r="29" fill="none" style="transform-origin: 0px 0px; stroke-dashoffset: -18.2212; stroke-dasharray: 145.77px, 36.5425px;" data-svg-origin="30 30" transform="matrix(-1,0,0,-1,60,60)"></circle>
+            </svg>
+            <div class="arrow__pointer arrow-left__pointer"></div>
+            <div class="arrow__triangle"></div>
+          </div>
+        </div>
+        <!-- right arrow -->
+        <div class="pswp__button pswp__button--arrow--right">
+          <div class="arrow arrow-right js-arrow" data-arts-cursor="data-arts-cursor" data-arts-cursor-hide-native="true" data-arts-cursor-scale="0" data-arts-cursor-magnetic="data-arts-cursor-magnetic">
+            <svg class="svg-circle" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <circle class="circle" cx="30" cy="30" r="29" fill="none" style="transform-origin: 0px 0px; stroke-dashoffset: -18.2212; stroke-dasharray: 145.77px, 36.5425px;" data-svg-origin="30 30" transform="matrix(-1,0,0,-1,60,60)"></circle>
+            </svg>
+            <div class="arrow__pointer arrow-right__pointer"></div>
+            <div class="arrow__triangle"></div>
+          </div>
+        </div>
+        <!-- - right arrow -->
+        <div class="pswp__caption">
+          <div class="pswp__caption__center text-center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- new arrival  -->
+  <section class="section section-testimonials bg-white pt-xsmall pb-small ">
+    <section class="section section-content clearfix container-fluid" data-arts-os-animation="data-arts-os-animation">
+      <div class="row">
+        <div class="section-content__inner col-sm-6 col-md-6 col-lg-6">
+          <div class="w-100"></div>
+          <div class="section-content__heading split-text js-split-text" data-split-text-type="lines,words" data-split-text-set="words">
+            <h2>Best Seller</h2>
+          </div>
+          <div class="section__headline mt-1 "></div>
+        </div>
+      
+        <div class="section-content__button col-sm-6 col-md-6 col-lg-6">
+          <a class="button-cursor" href="pages/shop.html">
+            <span>View More</span> 
+            <svg xmlns="http://www.w3.org/2000/svg" width='20' height="20" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M506.134,241.843c-0.006-0.006-0.011-0.013-0.018-0.019l-104.504-104c-7.829-7.791-20.492-7.762-28.285,0.068    c-7.792,7.829-7.762,20.492,0.067,28.284L443.558,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h423.557    l-70.162,69.824c-7.829,7.792-7.859,20.455-0.067,28.284c7.793,7.831,20.457,7.858,28.285,0.068l104.504-104    c0.006-0.006,0.011-0.013,0.018-0.019C513.968,262.339,513.943,249.635,506.134,241.843z" fill="currentColor" data-original="#000000" class=""/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="swiper mySwiper related-products mt-3"  >
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"> 
+          <div class="section-grid__item">
+            <div class="figure-logo bg-white">
+              <div class="figure">
+                <div class="tag sale">
+                  <span>Sale</span>
+                </div>
+                <img class="image-main lozad" data-src="img/2.webp" srcset="img/2.webp" alt="Demo image 1">
+                <img class="image-hover lozad" data-src="img/product.webp" srcset="img/product.webp" alt="Demo image 2">
+                <div class="img-hover">
+                  <a class="wishlist" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class='first-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" d="m489.864 101.1a130.755 130.755 0 0 0 -60.164-50.89c-28.112-11.8-59.687-13.924-91.309-6.127-28.978 7.146-57.204 22.645-82.391 45.129-25.189-22.486-53.418-37.986-82.4-45.131-31.623-7.8-63.2-5.674-91.312 6.134a130.755 130.755 0 0 0 -60.161 50.9c-15.02 23.744-22.661 52.619-22.097 83.5 2.504 137.285 207.006 262.122 247.976 285.755a16 16 0 0 0 15.989 0c40.974-23.636 245.494-148.495 247.976-285.779.558-30.879-7.086-59.751-22.107-83.491zm-9.887 82.916c-.8 44.388-30.39 96.139-85.563 149.655-51.095 49.558-109.214 86.912-138.414 104.293-29.2-17.378-87.31-54.727-138.4-104.287-55.176-53.512-84.766-105.259-85.576-149.646-.884-48.467 22.539-87.462 62.656-104.313a106.644 106.644 0 0 1 41.511-8.238c36.795 0 75.717 17.812 108.4 51.046a16 16 0 0 0 22.815 0c45.406-46.17 102.85-62.573 149.9-42.811 40.121 16.845 63.547 55.834 62.671 104.298z" fill="currentColor" data-original="#000000"/></g></svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class='second-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" clip-rule="evenodd" d="m256 469.878c-86.27-49.763-253.779-170.182-255.971-290.334-2.395-131.178 145.05-190.67 255.971-77.883 110.905-112.771 258.343-53.318 255.971 77.86-2.171 120.16-169.697 240.59-255.971 290.357z" fill-rule="evenodd" fill="currentColor" data-original="#000000"/></g></svg>
+                  </a>
+                  <a class="view" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 511.992 511.992" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M510.096,249.937c-4.032-5.867-100.928-143.275-254.101-143.275C124.56,106.662,7.44,243.281,2.512,249.105    c-3.349,3.968-3.349,9.792,0,13.781C7.44,268.71,124.56,405.329,255.995,405.329S504.549,268.71,509.477,262.886    C512.571,259.217,512.848,253.905,510.096,249.937z M255.995,383.996c-105.365,0-205.547-100.48-230.997-128    c25.408-27.541,125.483-128,230.997-128c123.285,0,210.304,100.331,231.552,127.424    C463.013,282.065,362.256,383.996,255.995,383.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M255.995,170.662c-47.061,0-85.333,38.272-85.333,85.333s38.272,85.333,85.333,85.333s85.333-38.272,85.333-85.333    S303.056,170.662,255.995,170.662z M255.995,319.996c-35.285,0-64-28.715-64-64s28.715-64,64-64s64,28.715,64,64    S291.28,319.996,255.995,319.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                  <a class="add-to-cart" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 321.2 321.2" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M306.4,313.2l-24-223.6c-0.4-3.6-3.6-6.4-7.2-6.4h-44.4V69.6c0-38.4-31.2-69.6-69.6-69.6c-38.4,0-69.6,31.2-69.6,69.6    v13.6H46c-3.6,0-6.8,2.8-7.2,6.4l-24,223.6c-0.4,2,0.4,4,1.6,5.6c1.2,1.6,3.2,2.4,5.2,2.4h278c2,0,4-0.8,5.2-2.4    C306,317.2,306.8,315.2,306.4,313.2z M223.6,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4    C217.2,126.4,220,123.6,223.6,123.6z M106,69.6c0-30.4,24.8-55.2,55.2-55.2c30.4,0,55.2,24.8,55.2,55.2v13.6H106V69.6z     M98.8,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4C92.4,126.4,95.2,123.6,98.8,123.6z M30,306.4    L52.4,97.2h39.2v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2    V97.2h110.4v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2V97.2    H270l22.4,209.2H30z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="figure-logo__description">
+                <div class="prod-name"><p>WAVE sandal</p></div>
+                <div class="prod-price">
+                  <ins><span class="money">399 EGP </span></ins>
+                  <del><span class="money">599 EGP </span></del>
+                </div>
+                <div class="colors">
+                  <div class="bage borderd"></div>
+                  <div class="gray"></div>
+                  <div class="pink "></div>
+                  <div class="black"></div>
+                </div>
+                <!-- <div class="figure-logo__line"></div> -->
+              </div>
+              <div class="add" >
+                <a class="button button_solid button_black mb-0-5" data-hover="add to cart" href="#">
+                  <span class="button__label-hover">
+                    Add to cart
+                  </span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="section-grid__item">
+            <div class="figure-logo bg-white">
+              <div class="figure">
+                <div class="tag new">
+                  <span>New</span>
+                </div>
+                <img class="image-main lozad" data-src="img/product2.webp" srcset="img/product2.webp" alt="Demo image 1">
+                <img class="image-hover lozad" data-src="img/product3.webp" srcset="img/product3.webp" alt="Demo image 2">
+                <div class="img-hover">
+                  <a class="wishlist" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class='first-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" d="m489.864 101.1a130.755 130.755 0 0 0 -60.164-50.89c-28.112-11.8-59.687-13.924-91.309-6.127-28.978 7.146-57.204 22.645-82.391 45.129-25.189-22.486-53.418-37.986-82.4-45.131-31.623-7.8-63.2-5.674-91.312 6.134a130.755 130.755 0 0 0 -60.161 50.9c-15.02 23.744-22.661 52.619-22.097 83.5 2.504 137.285 207.006 262.122 247.976 285.755a16 16 0 0 0 15.989 0c40.974-23.636 245.494-148.495 247.976-285.779.558-30.879-7.086-59.751-22.107-83.491zm-9.887 82.916c-.8 44.388-30.39 96.139-85.563 149.655-51.095 49.558-109.214 86.912-138.414 104.293-29.2-17.378-87.31-54.727-138.4-104.287-55.176-53.512-84.766-105.259-85.576-149.646-.884-48.467 22.539-87.462 62.656-104.313a106.644 106.644 0 0 1 41.511-8.238c36.795 0 75.717 17.812 108.4 51.046a16 16 0 0 0 22.815 0c45.406-46.17 102.85-62.573 149.9-42.811 40.121 16.845 63.547 55.834 62.671 104.298z" fill="currentColor" data-original="#000000"/></g></svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class='second-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" clip-rule="evenodd" d="m256 469.878c-86.27-49.763-253.779-170.182-255.971-290.334-2.395-131.178 145.05-190.67 255.971-77.883 110.905-112.771 258.343-53.318 255.971 77.86-2.171 120.16-169.697 240.59-255.971 290.357z" fill-rule="evenodd" fill="currentColor" data-original="#000000"/></g></svg>
+                  </a>
+                  <a class="view" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 511.992 511.992" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M510.096,249.937c-4.032-5.867-100.928-143.275-254.101-143.275C124.56,106.662,7.44,243.281,2.512,249.105    c-3.349,3.968-3.349,9.792,0,13.781C7.44,268.71,124.56,405.329,255.995,405.329S504.549,268.71,509.477,262.886    C512.571,259.217,512.848,253.905,510.096,249.937z M255.995,383.996c-105.365,0-205.547-100.48-230.997-128    c25.408-27.541,125.483-128,230.997-128c123.285,0,210.304,100.331,231.552,127.424    C463.013,282.065,362.256,383.996,255.995,383.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M255.995,170.662c-47.061,0-85.333,38.272-85.333,85.333s38.272,85.333,85.333,85.333s85.333-38.272,85.333-85.333    S303.056,170.662,255.995,170.662z M255.995,319.996c-35.285,0-64-28.715-64-64s28.715-64,64-64s64,28.715,64,64    S291.28,319.996,255.995,319.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                  <a class="add-to-cart" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 321.2 321.2" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M306.4,313.2l-24-223.6c-0.4-3.6-3.6-6.4-7.2-6.4h-44.4V69.6c0-38.4-31.2-69.6-69.6-69.6c-38.4,0-69.6,31.2-69.6,69.6    v13.6H46c-3.6,0-6.8,2.8-7.2,6.4l-24,223.6c-0.4,2,0.4,4,1.6,5.6c1.2,1.6,3.2,2.4,5.2,2.4h278c2,0,4-0.8,5.2-2.4    C306,317.2,306.8,315.2,306.4,313.2z M223.6,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4    C217.2,126.4,220,123.6,223.6,123.6z M106,69.6c0-30.4,24.8-55.2,55.2-55.2c30.4,0,55.2,24.8,55.2,55.2v13.6H106V69.6z     M98.8,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4C92.4,126.4,95.2,123.6,98.8,123.6z M30,306.4    L52.4,97.2h39.2v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2    V97.2h110.4v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2V97.2    H270l22.4,209.2H30z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="figure-logo__description">
+                <div class="prod-name"><p>EVA dama</p></div>
+                <div class="prod-price">
+                  <ins><span class="money">299 EGP </span></ins>
+                  <del><span class="money">399 EGP </span></del>
+                </div>
+                <div class="colors">
+                  <div class="bage borderd"></div>
+                  <div class="gray"></div>
+                  <div class="pink "></div>
+                  <div class="black"></div>
+                </div>
+              </div>
+              <div class="add" >
+                <a class="button button_solid button_black mb-0-5" data-hover="add to cart" href="#">
+                  <span class="button__label-hover">
+                    Add to cart
+                  </span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="section-grid__item">
+            <div class="figure-logo bg-white">
+              <div class="figure">
+                <img class="image-main lozad" data-src="img/product4.webp" srcset="img/product4.webp" alt="Demo image 1">
+                <img class="image-hover lozad" data-src="img/product5.webp" srcset="img/product5.webp" alt="Demo image 2">
+                <div class="img-hover">
+                  <a class="wishlist" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class='first-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" d="m489.864 101.1a130.755 130.755 0 0 0 -60.164-50.89c-28.112-11.8-59.687-13.924-91.309-6.127-28.978 7.146-57.204 22.645-82.391 45.129-25.189-22.486-53.418-37.986-82.4-45.131-31.623-7.8-63.2-5.674-91.312 6.134a130.755 130.755 0 0 0 -60.161 50.9c-15.02 23.744-22.661 52.619-22.097 83.5 2.504 137.285 207.006 262.122 247.976 285.755a16 16 0 0 0 15.989 0c40.974-23.636 245.494-148.495 247.976-285.779.558-30.879-7.086-59.751-22.107-83.491zm-9.887 82.916c-.8 44.388-30.39 96.139-85.563 149.655-51.095 49.558-109.214 86.912-138.414 104.293-29.2-17.378-87.31-54.727-138.4-104.287-55.176-53.512-84.766-105.259-85.576-149.646-.884-48.467 22.539-87.462 62.656-104.313a106.644 106.644 0 0 1 41.511-8.238c36.795 0 75.717 17.812 108.4 51.046a16 16 0 0 0 22.815 0c45.406-46.17 102.85-62.573 149.9-42.811 40.121 16.845 63.547 55.834 62.671 104.298z" fill="currentColor" data-original="#000000"/></g></svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class='second-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" clip-rule="evenodd" d="m256 469.878c-86.27-49.763-253.779-170.182-255.971-290.334-2.395-131.178 145.05-190.67 255.971-77.883 110.905-112.771 258.343-53.318 255.971 77.86-2.171 120.16-169.697 240.59-255.971 290.357z" fill-rule="evenodd" fill="currentColor" data-original="#000000"/></g></svg>
+                  </a>
+                  <a class="view" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 511.992 511.992" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M510.096,249.937c-4.032-5.867-100.928-143.275-254.101-143.275C124.56,106.662,7.44,243.281,2.512,249.105    c-3.349,3.968-3.349,9.792,0,13.781C7.44,268.71,124.56,405.329,255.995,405.329S504.549,268.71,509.477,262.886    C512.571,259.217,512.848,253.905,510.096,249.937z M255.995,383.996c-105.365,0-205.547-100.48-230.997-128    c25.408-27.541,125.483-128,230.997-128c123.285,0,210.304,100.331,231.552,127.424    C463.013,282.065,362.256,383.996,255.995,383.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M255.995,170.662c-47.061,0-85.333,38.272-85.333,85.333s38.272,85.333,85.333,85.333s85.333-38.272,85.333-85.333    S303.056,170.662,255.995,170.662z M255.995,319.996c-35.285,0-64-28.715-64-64s28.715-64,64-64s64,28.715,64,64    S291.28,319.996,255.995,319.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                  <a class="add-to-cart" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 321.2 321.2" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M306.4,313.2l-24-223.6c-0.4-3.6-3.6-6.4-7.2-6.4h-44.4V69.6c0-38.4-31.2-69.6-69.6-69.6c-38.4,0-69.6,31.2-69.6,69.6    v13.6H46c-3.6,0-6.8,2.8-7.2,6.4l-24,223.6c-0.4,2,0.4,4,1.6,5.6c1.2,1.6,3.2,2.4,5.2,2.4h278c2,0,4-0.8,5.2-2.4    C306,317.2,306.8,315.2,306.4,313.2z M223.6,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4    C217.2,126.4,220,123.6,223.6,123.6z M106,69.6c0-30.4,24.8-55.2,55.2-55.2c30.4,0,55.2,24.8,55.2,55.2v13.6H106V69.6z     M98.8,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4C92.4,126.4,95.2,123.6,98.8,123.6z M30,306.4    L52.4,97.2h39.2v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2    V97.2h110.4v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2V97.2    H270l22.4,209.2H30z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="figure-logo__description">
+                <div class="prod-name"><p>Alezandria</p></div>
+                <div class="prod-price">
+                  <ins><span class="money">399 EGP </span></ins>
+                  <del><span class="money">599 EGP </span></del>
+                </div>
+                <div class="colors">
+                  <div class="bage borderd"></div>
+                  <div class="gray"></div>
+                  <div class="pink "></div>
+                  <div class="black"></div>
+                </div>
+              </div>
+              <div class="add" >
+                <a class="button button_solid button_black mb-0-5" data-hover="add to cart" href="#">
+                  <span class="button__label-hover">
+                    Add to cart
+                  </span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="section-grid__item">
+            <div class="figure-logo bg-white">
+              <div class="figure">
+                <img class="image-main lozad" data-src="img/2.webp" srcset="img/2.webp" alt="Demo image 1">
+                <img class="image-hover lozad" data-src="img/product.webp" srcset="img/product.webp" alt="Demo image 2">
+                <div class="img-hover">
+                  <a class="wishlist" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class='first-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" d="m489.864 101.1a130.755 130.755 0 0 0 -60.164-50.89c-28.112-11.8-59.687-13.924-91.309-6.127-28.978 7.146-57.204 22.645-82.391 45.129-25.189-22.486-53.418-37.986-82.4-45.131-31.623-7.8-63.2-5.674-91.312 6.134a130.755 130.755 0 0 0 -60.161 50.9c-15.02 23.744-22.661 52.619-22.097 83.5 2.504 137.285 207.006 262.122 247.976 285.755a16 16 0 0 0 15.989 0c40.974-23.636 245.494-148.495 247.976-285.779.558-30.879-7.086-59.751-22.107-83.491zm-9.887 82.916c-.8 44.388-30.39 96.139-85.563 149.655-51.095 49.558-109.214 86.912-138.414 104.293-29.2-17.378-87.31-54.727-138.4-104.287-55.176-53.512-84.766-105.259-85.576-149.646-.884-48.467 22.539-87.462 62.656-104.313a106.644 106.644 0 0 1 41.511-8.238c36.795 0 75.717 17.812 108.4 51.046a16 16 0 0 0 22.815 0c45.406-46.17 102.85-62.573 149.9-42.811 40.121 16.845 63.547 55.834 62.671 104.298z" fill="currentColor" data-original="#000000"/></g></svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class='second-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" clip-rule="evenodd" d="m256 469.878c-86.27-49.763-253.779-170.182-255.971-290.334-2.395-131.178 145.05-190.67 255.971-77.883 110.905-112.771 258.343-53.318 255.971 77.86-2.171 120.16-169.697 240.59-255.971 290.357z" fill-rule="evenodd" fill="currentColor" data-original="#000000"/></g></svg>
+                  </a>
+                  <a class="view" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 511.992 511.992" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M510.096,249.937c-4.032-5.867-100.928-143.275-254.101-143.275C124.56,106.662,7.44,243.281,2.512,249.105    c-3.349,3.968-3.349,9.792,0,13.781C7.44,268.71,124.56,405.329,255.995,405.329S504.549,268.71,509.477,262.886    C512.571,259.217,512.848,253.905,510.096,249.937z M255.995,383.996c-105.365,0-205.547-100.48-230.997-128    c25.408-27.541,125.483-128,230.997-128c123.285,0,210.304,100.331,231.552,127.424    C463.013,282.065,362.256,383.996,255.995,383.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M255.995,170.662c-47.061,0-85.333,38.272-85.333,85.333s38.272,85.333,85.333,85.333s85.333-38.272,85.333-85.333    S303.056,170.662,255.995,170.662z M255.995,319.996c-35.285,0-64-28.715-64-64s28.715-64,64-64s64,28.715,64,64    S291.28,319.996,255.995,319.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                  <a class="add-to-cart" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 321.2 321.2" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M306.4,313.2l-24-223.6c-0.4-3.6-3.6-6.4-7.2-6.4h-44.4V69.6c0-38.4-31.2-69.6-69.6-69.6c-38.4,0-69.6,31.2-69.6,69.6    v13.6H46c-3.6,0-6.8,2.8-7.2,6.4l-24,223.6c-0.4,2,0.4,4,1.6,5.6c1.2,1.6,3.2,2.4,5.2,2.4h278c2,0,4-0.8,5.2-2.4    C306,317.2,306.8,315.2,306.4,313.2z M223.6,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4    C217.2,126.4,220,123.6,223.6,123.6z M106,69.6c0-30.4,24.8-55.2,55.2-55.2c30.4,0,55.2,24.8,55.2,55.2v13.6H106V69.6z     M98.8,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4C92.4,126.4,95.2,123.6,98.8,123.6z M30,306.4    L52.4,97.2h39.2v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2    V97.2h110.4v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2V97.2    H270l22.4,209.2H30z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="figure-logo__description">
+                <div class="prod-name"><p>WAVE sandal</p></div>
+                <div class="prod-price">
+                  <ins><span class="money">199 EGP </span></ins>
+                  <del><span class="money">299 EGP </span></del>
+                </div>
+                <div class="colors">
+                  <div class="bage borderd"></div>
+                  <div class="gray"></div>
+                  <div class="pink "></div>
+                  <div class="black"></div>
+                </div>
+              </div>
+              <div class="add" >
+                <a class="button button_solid button_black mb-0-5" data-hover="add to cart" href="#">
+                  <span class="button__label-hover">
+                    Add to cart
+                  </span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="section-grid__item">
+            <div class="figure-logo bg-white">
+              <div class="figure">
+                <img class="image-main lozad" data-src="img/product4.webp" srcset="img/product4.webp" alt="Demo image 1">
+                <img class="image-hover lozad" data-src="img/product5.webp" srcset="img/product5.webp" alt="Demo image 2">
+                <div class="img-hover">
+                  <a class="wishlist" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class='first-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" d="m489.864 101.1a130.755 130.755 0 0 0 -60.164-50.89c-28.112-11.8-59.687-13.924-91.309-6.127-28.978 7.146-57.204 22.645-82.391 45.129-25.189-22.486-53.418-37.986-82.4-45.131-31.623-7.8-63.2-5.674-91.312 6.134a130.755 130.755 0 0 0 -60.161 50.9c-15.02 23.744-22.661 52.619-22.097 83.5 2.504 137.285 207.006 262.122 247.976 285.755a16 16 0 0 0 15.989 0c40.974-23.636 245.494-148.495 247.976-285.779.558-30.879-7.086-59.751-22.107-83.491zm-9.887 82.916c-.8 44.388-30.39 96.139-85.563 149.655-51.095 49.558-109.214 86.912-138.414 104.293-29.2-17.378-87.31-54.727-138.4-104.287-55.176-53.512-84.766-105.259-85.576-149.646-.884-48.467 22.539-87.462 62.656-104.313a106.644 106.644 0 0 1 41.511-8.238c36.795 0 75.717 17.812 108.4 51.046a16 16 0 0 0 22.815 0c45.406-46.17 102.85-62.573 149.9-42.811 40.121 16.845 63.547 55.834 62.671 104.298z" fill="currentColor" data-original="#000000"/></g></svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class='second-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" clip-rule="evenodd" d="m256 469.878c-86.27-49.763-253.779-170.182-255.971-290.334-2.395-131.178 145.05-190.67 255.971-77.883 110.905-112.771 258.343-53.318 255.971 77.86-2.171 120.16-169.697 240.59-255.971 290.357z" fill-rule="evenodd" fill="currentColor" data-original="#000000"/></g></svg>
+                  </a>
+                  <a class="view" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 511.992 511.992" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M510.096,249.937c-4.032-5.867-100.928-143.275-254.101-143.275C124.56,106.662,7.44,243.281,2.512,249.105    c-3.349,3.968-3.349,9.792,0,13.781C7.44,268.71,124.56,405.329,255.995,405.329S504.549,268.71,509.477,262.886    C512.571,259.217,512.848,253.905,510.096,249.937z M255.995,383.996c-105.365,0-205.547-100.48-230.997-128    c25.408-27.541,125.483-128,230.997-128c123.285,0,210.304,100.331,231.552,127.424    C463.013,282.065,362.256,383.996,255.995,383.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M255.995,170.662c-47.061,0-85.333,38.272-85.333,85.333s38.272,85.333,85.333,85.333s85.333-38.272,85.333-85.333    S303.056,170.662,255.995,170.662z M255.995,319.996c-35.285,0-64-28.715-64-64s28.715-64,64-64s64,28.715,64,64    S291.28,319.996,255.995,319.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                  <a class="add-to-cart" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 321.2 321.2" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M306.4,313.2l-24-223.6c-0.4-3.6-3.6-6.4-7.2-6.4h-44.4V69.6c0-38.4-31.2-69.6-69.6-69.6c-38.4,0-69.6,31.2-69.6,69.6    v13.6H46c-3.6,0-6.8,2.8-7.2,6.4l-24,223.6c-0.4,2,0.4,4,1.6,5.6c1.2,1.6,3.2,2.4,5.2,2.4h278c2,0,4-0.8,5.2-2.4    C306,317.2,306.8,315.2,306.4,313.2z M223.6,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4    C217.2,126.4,220,123.6,223.6,123.6z M106,69.6c0-30.4,24.8-55.2,55.2-55.2c30.4,0,55.2,24.8,55.2,55.2v13.6H106V69.6z     M98.8,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4C92.4,126.4,95.2,123.6,98.8,123.6z M30,306.4    L52.4,97.2h39.2v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2    V97.2h110.4v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2V97.2    H270l22.4,209.2H30z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="figure-logo__description">
+                <div class="prod-name"><p>Alezandria</p></div>
+                <div class="prod-price">
+                  <ins><span class="money">399 EGP </span></ins>
+                  <del><span class="money">599 EGP </span></del>
+                </div>
+                <div class="colors">
+                  <div class="bage borderd"></div>
+                  <div class="gray"></div>
+                  <div class="pink "></div>
+                  <div class="black"></div>
+                </div>
+              </div>
+              <div class="add" >
+                <a class="button button_solid button_black mb-0-5" data-hover="add to cart" href="#">
+                  <span class="button__label-hover">
+                    Add to cart
+                  </span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="section-grid__item">
+            <div class="figure-logo bg-white">
+              <div class="figure">
+                <img class="image-main lozad" data-src="img/product4.webp" srcset="img/product4.webp" alt="Demo image 1">
+                <img class="image-hover lozad" data-src="img/product5.webp" srcset="img/product5.webp" alt="Demo image 2">
+                <div class="img-hover">
+                  <a class="wishlist" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class='first-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" d="m489.864 101.1a130.755 130.755 0 0 0 -60.164-50.89c-28.112-11.8-59.687-13.924-91.309-6.127-28.978 7.146-57.204 22.645-82.391 45.129-25.189-22.486-53.418-37.986-82.4-45.131-31.623-7.8-63.2-5.674-91.312 6.134a130.755 130.755 0 0 0 -60.161 50.9c-15.02 23.744-22.661 52.619-22.097 83.5 2.504 137.285 207.006 262.122 247.976 285.755a16 16 0 0 0 15.989 0c40.974-23.636 245.494-148.495 247.976-285.779.558-30.879-7.086-59.751-22.107-83.491zm-9.887 82.916c-.8 44.388-30.39 96.139-85.563 149.655-51.095 49.558-109.214 86.912-138.414 104.293-29.2-17.378-87.31-54.727-138.4-104.287-55.176-53.512-84.766-105.259-85.576-149.646-.884-48.467 22.539-87.462 62.656-104.313a106.644 106.644 0 0 1 41.511-8.238c36.795 0 75.717 17.812 108.4 51.046a16 16 0 0 0 22.815 0c45.406-46.17 102.85-62.573 149.9-42.811 40.121 16.845 63.547 55.834 62.671 104.298z" fill="currentColor" data-original="#000000"/></g></svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class='second-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" clip-rule="evenodd" d="m256 469.878c-86.27-49.763-253.779-170.182-255.971-290.334-2.395-131.178 145.05-190.67 255.971-77.883 110.905-112.771 258.343-53.318 255.971 77.86-2.171 120.16-169.697 240.59-255.971 290.357z" fill-rule="evenodd" fill="currentColor" data-original="#000000"/></g></svg>
+                  </a>
+                  <a class="view" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 511.992 511.992" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M510.096,249.937c-4.032-5.867-100.928-143.275-254.101-143.275C124.56,106.662,7.44,243.281,2.512,249.105    c-3.349,3.968-3.349,9.792,0,13.781C7.44,268.71,124.56,405.329,255.995,405.329S504.549,268.71,509.477,262.886    C512.571,259.217,512.848,253.905,510.096,249.937z M255.995,383.996c-105.365,0-205.547-100.48-230.997-128    c25.408-27.541,125.483-128,230.997-128c123.285,0,210.304,100.331,231.552,127.424    C463.013,282.065,362.256,383.996,255.995,383.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M255.995,170.662c-47.061,0-85.333,38.272-85.333,85.333s38.272,85.333,85.333,85.333s85.333-38.272,85.333-85.333    S303.056,170.662,255.995,170.662z M255.995,319.996c-35.285,0-64-28.715-64-64s28.715-64,64-64s64,28.715,64,64    S291.28,319.996,255.995,319.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                  <a class="add-to-cart" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 321.2 321.2" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M306.4,313.2l-24-223.6c-0.4-3.6-3.6-6.4-7.2-6.4h-44.4V69.6c0-38.4-31.2-69.6-69.6-69.6c-38.4,0-69.6,31.2-69.6,69.6    v13.6H46c-3.6,0-6.8,2.8-7.2,6.4l-24,223.6c-0.4,2,0.4,4,1.6,5.6c1.2,1.6,3.2,2.4,5.2,2.4h278c2,0,4-0.8,5.2-2.4    C306,317.2,306.8,315.2,306.4,313.2z M223.6,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4    C217.2,126.4,220,123.6,223.6,123.6z M106,69.6c0-30.4,24.8-55.2,55.2-55.2c30.4,0,55.2,24.8,55.2,55.2v13.6H106V69.6z     M98.8,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4C92.4,126.4,95.2,123.6,98.8,123.6z M30,306.4    L52.4,97.2h39.2v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2    V97.2h110.4v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2V97.2    H270l22.4,209.2H30z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="figure-logo__description">
+                <div class="prod-name"><p>Alezandria</p></div>
+                <div class="prod-price">
+                  <ins><span class="money">299 EGP </span></ins>
+                  <del><span class="money">499 EGP </span></del>
+                </div>
+                <div class="colors">
+                  <div class="bage borderd"></div>
+                  <div class="gray"></div>
+                  <div class="pink "></div>
+                  <div class="black"></div>
+                </div>
+              </div>
+              <div class="add" >
+                <a class="button button_solid button_black mb-0-5" data-hover="add to cart" href="#">
+                  <span class="button__label-hover">
+                    Add to cart
+                  </span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-testimonials__arrows container-fluid">
+        <div class="slider__arrow slider__arrow_left js-slider__arrow-prev">
+          <div class="arrow arrow-left js-arrow" data-arts-cursor="data-arts-cursor" data-arts-cursor-hide-native="true" data-arts-cursor-scale="0" data-arts-cursor-magnetic="data-arts-cursor-magnetic">
+            <svg class="svg-circle" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <circle class="circle" cx="30" cy="30" r="29" fill="none"></circle>
+            </svg>
+            <div class="arrow__pointer arrow-left__pointer"></div>
+            <div class="arrow__triangle"></div>
+          </div>
+        </div>
+        <div class="slider__arrow slider__arrow_right js-slider__arrow-next">
+          <div class="arrow arrow-right js-arrow" data-arts-cursor="data-arts-cursor" data-arts-cursor-hide-native="true" data-arts-cursor-scale="0" data-arts-cursor-magnetic="data-arts-cursor-magnetic">
+            <svg class="svg-circle" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <circle class="circle" cx="30" cy="30" r="29" fill="none"></circle>
+            </svg>
+            <div class="arrow__pointer arrow-right__pointer"></div>
+            <div class="arrow__triangle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <div class="bg-white text-center section-scroll" data-arts-theme-text="dark" data-arts-scroll-theme-text="light" data-arts-default-theme="bg-white" data-arts-scroll-theme="bg-dark-1" data-arts-scroll-trigger-hook="0.0" data-arts-scroll-offset="-500">
+    <section class="section section-features section-grid" data-arts-os-animation="data-arts-os-animation" data-grid-columns="6" data-grid-columns-tablet="2" data-grid-columns-mobile="1">
+      <div class="container">
+        <div class="row row-gutters justify-content-center">
+          <div class="col-lg-8 col-sm-8 col-gutters">
+            <div class="section-grid__item">
+              <div class="figure-icon">
+                <div class="figure-icon__wrapper-icon" data-arts-cursor="data-arts-cursor" data-arts-cursor-hide-native="true" data-arts-cursor-scale="0" data-arts-cursor-magnetic="data-arts-cursor-magnetic">
+                  <svg xmlns="http://www.w3.org/2000/svg" width='50' height='50' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path xmlns="http://www.w3.org/2000/svg" d="m235.605469 203.519531v25.742188c0 8.175781 1.636719 15.035156 4.855469 20.378906 4.445312 7.375 11.742187 11.601563 20.027343 11.601563 8.117188 0 16.183594-3.953126 23.976563-11.742188l85.023437-85.023438c18.664063-18.667968 18.664063-49.042968-.003906-67.710937l-85.019531-85.023437c-7.792969-7.792969-15.859375-11.742188-23.976563-11.742188-12.382812 0-24.882812 9.890625-24.882812 31.980469v23.378906c-120.710938 7.128906-220.640625 99.765625-235.492188 221.050781-.832031 6.773438 3.019531 13.257813 9.367188 15.769532 1.796875.710937 3.667969 1.054687 5.515625 1.054687 4.679687 0 9.21875-2.191406 12.109375-6.140625 39.835937-54.429688 103.796875-86.925781 171.09375-86.925781 12.472656 0 25.007812 1.125 37.40625 3.351562zm-192.121094 22.667969c32.648437-83.382812 113.90625-141.269531 207.121094-141.269531 8.285156 0 15-6.714844 15-15v-34.605469l82.667969 82.664062c6.96875 6.972657 6.96875 18.316407 0 25.289063l-82.667969 82.664063v-34.609376c0-6.953124-4.777344-12.996093-11.546875-14.597656-18.382813-4.347656-37.179688-6.554687-55.859375-6.554687-38.671875 0-77.140625 9.359375-111.25 27.070312-15.457031 8.023438-30.050781 17.765625-43.464844 28.949219zm0 0" fill="currentColor" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m438.257812 219.820312c-6.347656-2.511718-13.59375-.417968-17.625 5.089844-39.835937 54.425782-103.792968 86.921875-171.09375 86.921875-12.46875 0-25.003906-1.125-37.40625-3.351562v-25.742188c0-22.089843-12.496093-31.980469-24.882812-31.980469-8.117188 0-16.183594 3.953126-23.972656 11.746094l-85.023438 85.019532c-18.667968 18.667968-18.667968 49.042968 0 67.714843l85.023438 85.019531c7.789062 7.792969 15.855468 11.742188 23.972656 11.742188 12.382812 0 24.882812-9.890625 24.882812-31.980469v-23.378906c120.714844-7.128906 220.640626-99.765625 235.492188-221.046875.832031-6.777344-3.019531-13.261719-9.367188-15.773438zm-241.125 207.261719c-8.285156 0-15 6.714844-15 15v34.605469l-82.664062-82.660156c-6.972656-6.976563-6.972656-18.320313-.003906-25.289063l82.667968-82.667969v34.609376c0 6.957031 4.78125 13 11.550782 14.601562 18.386718 4.34375 37.179687 6.550781 55.855468 6.550781 38.675782 0 77.144532-9.359375 111.25-27.066406 15.457032-8.027344 30.050782-17.765625 43.464844-28.949219-32.648437 83.378906-113.90625 141.265625-207.121094 141.265625zm0 0" fill="currentColor" data-original="#000000" class=""/></g></svg>
+                </div>
+                <div class="figure-icon__header mb-2">
+                  <div class="figure-feature__heading strong mt-1 mb-0">2-Years Warranty, 20 EGP Exchange Fees</div>
+                </div>
+                <a class="button button_white button_bordered" data-hover="Shop now" href="#" data-pjax-link="fullscreenSlider">
+                  <span class="button__label-hover">Shop now</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- related -->
+  <section class="section section-testimonials bg-white pt-xsmall pb-small ">
+    <section class="section section-content clearfix container-fluid" data-arts-os-animation="data-arts-os-animation">
+      <div class="row">
+        <div class="section-content__inner col-sm-6 col-md-6 col-lg-6">
+          <div class="w-100"></div>
+          <div class="section-content__heading split-text js-split-text" data-split-text-type="lines,words" data-split-text-set="words">
+            <h2>New Arrival</h2>
+          </div>
+          <div class="section__headline mt-1 "></div>
+        </div>
+      
+        <div class="section-content__button col-sm-6 col-md-6 col-lg-6">
+          <a class="button-cursor" href="pages/shop.html">
+            <span>View More</span> 
+            <svg xmlns="http://www.w3.org/2000/svg" width='20' height="20" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M506.134,241.843c-0.006-0.006-0.011-0.013-0.018-0.019l-104.504-104c-7.829-7.791-20.492-7.762-28.285,0.068    c-7.792,7.829-7.762,20.492,0.067,28.284L443.558,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h423.557    l-70.162,69.824c-7.829,7.792-7.859,20.455-0.067,28.284c7.793,7.831,20.457,7.858,28.285,0.068l104.504-104    c0.006-0.006,0.011-0.013,0.018-0.019C513.968,262.339,513.943,249.635,506.134,241.843z" fill="currentColor" data-original="#000000" class=""/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- data-slides-per-view="1.4" data-slides-per-view-tablet="1.2" data-slides-per-view-mobile="1.1" data-autoplay-enabled="false" data-autoplay-delay="6000" data-speed="2000" -->
+
+    <!-- slider slider-testimonials js-slider-testimonials pt-small -->
+    
+    <div class="swiper mySwiper related-products mt-3"  >
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"> 
+          <div class="section-grid__item">
+            <div class="figure-logo bg-white">
+              <div class="figure">
+                <div class="tag sale">
+                  <span>Sale</span>
+                </div>
+                <img class="image-main lozad" data-src="img/2.webp" srcset="img/2.webp" alt="Demo image 1">
+                <img class="image-hover lozad" data-src="img/product.webp" srcset="img/product.webp" alt="Demo image 2">
+                <div class="img-hover">
+                  <a class="wishlist" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class='first-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" d="m489.864 101.1a130.755 130.755 0 0 0 -60.164-50.89c-28.112-11.8-59.687-13.924-91.309-6.127-28.978 7.146-57.204 22.645-82.391 45.129-25.189-22.486-53.418-37.986-82.4-45.131-31.623-7.8-63.2-5.674-91.312 6.134a130.755 130.755 0 0 0 -60.161 50.9c-15.02 23.744-22.661 52.619-22.097 83.5 2.504 137.285 207.006 262.122 247.976 285.755a16 16 0 0 0 15.989 0c40.974-23.636 245.494-148.495 247.976-285.779.558-30.879-7.086-59.751-22.107-83.491zm-9.887 82.916c-.8 44.388-30.39 96.139-85.563 149.655-51.095 49.558-109.214 86.912-138.414 104.293-29.2-17.378-87.31-54.727-138.4-104.287-55.176-53.512-84.766-105.259-85.576-149.646-.884-48.467 22.539-87.462 62.656-104.313a106.644 106.644 0 0 1 41.511-8.238c36.795 0 75.717 17.812 108.4 51.046a16 16 0 0 0 22.815 0c45.406-46.17 102.85-62.573 149.9-42.811 40.121 16.845 63.547 55.834 62.671 104.298z" fill="currentColor" data-original="#000000"/></g></svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class='second-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" clip-rule="evenodd" d="m256 469.878c-86.27-49.763-253.779-170.182-255.971-290.334-2.395-131.178 145.05-190.67 255.971-77.883 110.905-112.771 258.343-53.318 255.971 77.86-2.171 120.16-169.697 240.59-255.971 290.357z" fill-rule="evenodd" fill="currentColor" data-original="#000000"/></g></svg>
+                  </a>
+                  <a class="view" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 511.992 511.992" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M510.096,249.937c-4.032-5.867-100.928-143.275-254.101-143.275C124.56,106.662,7.44,243.281,2.512,249.105    c-3.349,3.968-3.349,9.792,0,13.781C7.44,268.71,124.56,405.329,255.995,405.329S504.549,268.71,509.477,262.886    C512.571,259.217,512.848,253.905,510.096,249.937z M255.995,383.996c-105.365,0-205.547-100.48-230.997-128    c25.408-27.541,125.483-128,230.997-128c123.285,0,210.304,100.331,231.552,127.424    C463.013,282.065,362.256,383.996,255.995,383.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M255.995,170.662c-47.061,0-85.333,38.272-85.333,85.333s38.272,85.333,85.333,85.333s85.333-38.272,85.333-85.333    S303.056,170.662,255.995,170.662z M255.995,319.996c-35.285,0-64-28.715-64-64s28.715-64,64-64s64,28.715,64,64    S291.28,319.996,255.995,319.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                  <a class="add-to-cart" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 321.2 321.2" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M306.4,313.2l-24-223.6c-0.4-3.6-3.6-6.4-7.2-6.4h-44.4V69.6c0-38.4-31.2-69.6-69.6-69.6c-38.4,0-69.6,31.2-69.6,69.6    v13.6H46c-3.6,0-6.8,2.8-7.2,6.4l-24,223.6c-0.4,2,0.4,4,1.6,5.6c1.2,1.6,3.2,2.4,5.2,2.4h278c2,0,4-0.8,5.2-2.4    C306,317.2,306.8,315.2,306.4,313.2z M223.6,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4    C217.2,126.4,220,123.6,223.6,123.6z M106,69.6c0-30.4,24.8-55.2,55.2-55.2c30.4,0,55.2,24.8,55.2,55.2v13.6H106V69.6z     M98.8,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4C92.4,126.4,95.2,123.6,98.8,123.6z M30,306.4    L52.4,97.2h39.2v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2    V97.2h110.4v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2V97.2    H270l22.4,209.2H30z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="figure-logo__description">
+                <div class="prod-name"><p>WAVE sandal</p></div>
+                <div class="prod-price">
+                  <ins><span class="money">399 EGP </span></ins>
+                  <del><span class="money">599 EGP </span></del>
+                </div>
+                <div class="colors">
+                  <div class="bage borderd"></div>
+                  <div class="gray"></div>
+                  <div class="pink "></div>
+                  <div class="black"></div>
+                </div>
+                <!-- <div class="figure-logo__line"></div> -->
+              </div>
+              <div class="add" >
+                <a class="button button_solid button_black mb-0-5" data-hover="add to cart" href="#">
+                  <span class="button__label-hover">
+                    Add to cart
+                  </span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="section-grid__item">
+            <div class="figure-logo bg-white">
+              <div class="figure">
+                <div class="tag new">
+                  <span>New</span>
+                </div>
+                <img class="image-main lozad" data-src="img/product2.webp" srcset="img/product2.webp" alt="Demo image 1">
+                <img class="image-hover lozad" data-src="img/product3.webp" srcset="img/product3.webp" alt="Demo image 2">
+                <div class="img-hover">
+                  <a class="wishlist" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class='first-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" d="m489.864 101.1a130.755 130.755 0 0 0 -60.164-50.89c-28.112-11.8-59.687-13.924-91.309-6.127-28.978 7.146-57.204 22.645-82.391 45.129-25.189-22.486-53.418-37.986-82.4-45.131-31.623-7.8-63.2-5.674-91.312 6.134a130.755 130.755 0 0 0 -60.161 50.9c-15.02 23.744-22.661 52.619-22.097 83.5 2.504 137.285 207.006 262.122 247.976 285.755a16 16 0 0 0 15.989 0c40.974-23.636 245.494-148.495 247.976-285.779.558-30.879-7.086-59.751-22.107-83.491zm-9.887 82.916c-.8 44.388-30.39 96.139-85.563 149.655-51.095 49.558-109.214 86.912-138.414 104.293-29.2-17.378-87.31-54.727-138.4-104.287-55.176-53.512-84.766-105.259-85.576-149.646-.884-48.467 22.539-87.462 62.656-104.313a106.644 106.644 0 0 1 41.511-8.238c36.795 0 75.717 17.812 108.4 51.046a16 16 0 0 0 22.815 0c45.406-46.17 102.85-62.573 149.9-42.811 40.121 16.845 63.547 55.834 62.671 104.298z" fill="currentColor" data-original="#000000"/></g></svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class='second-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" clip-rule="evenodd" d="m256 469.878c-86.27-49.763-253.779-170.182-255.971-290.334-2.395-131.178 145.05-190.67 255.971-77.883 110.905-112.771 258.343-53.318 255.971 77.86-2.171 120.16-169.697 240.59-255.971 290.357z" fill-rule="evenodd" fill="currentColor" data-original="#000000"/></g></svg>
+                  </a>
+                  <a class="view" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 511.992 511.992" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M510.096,249.937c-4.032-5.867-100.928-143.275-254.101-143.275C124.56,106.662,7.44,243.281,2.512,249.105    c-3.349,3.968-3.349,9.792,0,13.781C7.44,268.71,124.56,405.329,255.995,405.329S504.549,268.71,509.477,262.886    C512.571,259.217,512.848,253.905,510.096,249.937z M255.995,383.996c-105.365,0-205.547-100.48-230.997-128    c25.408-27.541,125.483-128,230.997-128c123.285,0,210.304,100.331,231.552,127.424    C463.013,282.065,362.256,383.996,255.995,383.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M255.995,170.662c-47.061,0-85.333,38.272-85.333,85.333s38.272,85.333,85.333,85.333s85.333-38.272,85.333-85.333    S303.056,170.662,255.995,170.662z M255.995,319.996c-35.285,0-64-28.715-64-64s28.715-64,64-64s64,28.715,64,64    S291.28,319.996,255.995,319.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                  <a class="add-to-cart" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 321.2 321.2" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M306.4,313.2l-24-223.6c-0.4-3.6-3.6-6.4-7.2-6.4h-44.4V69.6c0-38.4-31.2-69.6-69.6-69.6c-38.4,0-69.6,31.2-69.6,69.6    v13.6H46c-3.6,0-6.8,2.8-7.2,6.4l-24,223.6c-0.4,2,0.4,4,1.6,5.6c1.2,1.6,3.2,2.4,5.2,2.4h278c2,0,4-0.8,5.2-2.4    C306,317.2,306.8,315.2,306.4,313.2z M223.6,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4    C217.2,126.4,220,123.6,223.6,123.6z M106,69.6c0-30.4,24.8-55.2,55.2-55.2c30.4,0,55.2,24.8,55.2,55.2v13.6H106V69.6z     M98.8,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4C92.4,126.4,95.2,123.6,98.8,123.6z M30,306.4    L52.4,97.2h39.2v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2    V97.2h110.4v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2V97.2    H270l22.4,209.2H30z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="figure-logo__description">
+                <div class="prod-name"><p>EVA dama</p></div>
+                <div class="prod-price">
+                  <ins><span class="money">199 EGP </span></ins>
+                  <del><span class="money">399 EGP </span></del>
+                </div>
+                <div class="colors">
+                  <div class="bage borderd"></div>
+                  <div class="gray"></div>
+                  <div class="pink "></div>
+                  <div class="black"></div>
+                </div>
+              </div>
+              <div class="add" >
+                <a class="button button_solid button_black mb-0-5" data-hover="add to cart" href="#">
+                  <span class="button__label-hover">
+                    Add to cart
+                  </span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="section-grid__item">
+            <div class="figure-logo bg-white">
+              <div class="figure">
+                <img class="image-main lozad" data-src="img/product4.webp" srcset="img/product4.webp" alt="Demo image 1">
+                <img class="image-hover lozad" data-src="img/product5.webp" srcset="img/product5.webp" alt="Demo image 2">
+                <div class="img-hover">
+                  <a class="wishlist" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class='first-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" d="m489.864 101.1a130.755 130.755 0 0 0 -60.164-50.89c-28.112-11.8-59.687-13.924-91.309-6.127-28.978 7.146-57.204 22.645-82.391 45.129-25.189-22.486-53.418-37.986-82.4-45.131-31.623-7.8-63.2-5.674-91.312 6.134a130.755 130.755 0 0 0 -60.161 50.9c-15.02 23.744-22.661 52.619-22.097 83.5 2.504 137.285 207.006 262.122 247.976 285.755a16 16 0 0 0 15.989 0c40.974-23.636 245.494-148.495 247.976-285.779.558-30.879-7.086-59.751-22.107-83.491zm-9.887 82.916c-.8 44.388-30.39 96.139-85.563 149.655-51.095 49.558-109.214 86.912-138.414 104.293-29.2-17.378-87.31-54.727-138.4-104.287-55.176-53.512-84.766-105.259-85.576-149.646-.884-48.467 22.539-87.462 62.656-104.313a106.644 106.644 0 0 1 41.511-8.238c36.795 0 75.717 17.812 108.4 51.046a16 16 0 0 0 22.815 0c45.406-46.17 102.85-62.573 149.9-42.811 40.121 16.845 63.547 55.834 62.671 104.298z" fill="currentColor" data-original="#000000"/></g></svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class='second-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" clip-rule="evenodd" d="m256 469.878c-86.27-49.763-253.779-170.182-255.971-290.334-2.395-131.178 145.05-190.67 255.971-77.883 110.905-112.771 258.343-53.318 255.971 77.86-2.171 120.16-169.697 240.59-255.971 290.357z" fill-rule="evenodd" fill="currentColor" data-original="#000000"/></g></svg>
+                  </a>
+                  <a class="view" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 511.992 511.992" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M510.096,249.937c-4.032-5.867-100.928-143.275-254.101-143.275C124.56,106.662,7.44,243.281,2.512,249.105    c-3.349,3.968-3.349,9.792,0,13.781C7.44,268.71,124.56,405.329,255.995,405.329S504.549,268.71,509.477,262.886    C512.571,259.217,512.848,253.905,510.096,249.937z M255.995,383.996c-105.365,0-205.547-100.48-230.997-128    c25.408-27.541,125.483-128,230.997-128c123.285,0,210.304,100.331,231.552,127.424    C463.013,282.065,362.256,383.996,255.995,383.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M255.995,170.662c-47.061,0-85.333,38.272-85.333,85.333s38.272,85.333,85.333,85.333s85.333-38.272,85.333-85.333    S303.056,170.662,255.995,170.662z M255.995,319.996c-35.285,0-64-28.715-64-64s28.715-64,64-64s64,28.715,64,64    S291.28,319.996,255.995,319.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                  <a class="add-to-cart" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 321.2 321.2" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M306.4,313.2l-24-223.6c-0.4-3.6-3.6-6.4-7.2-6.4h-44.4V69.6c0-38.4-31.2-69.6-69.6-69.6c-38.4,0-69.6,31.2-69.6,69.6    v13.6H46c-3.6,0-6.8,2.8-7.2,6.4l-24,223.6c-0.4,2,0.4,4,1.6,5.6c1.2,1.6,3.2,2.4,5.2,2.4h278c2,0,4-0.8,5.2-2.4    C306,317.2,306.8,315.2,306.4,313.2z M223.6,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4    C217.2,126.4,220,123.6,223.6,123.6z M106,69.6c0-30.4,24.8-55.2,55.2-55.2c30.4,0,55.2,24.8,55.2,55.2v13.6H106V69.6z     M98.8,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4C92.4,126.4,95.2,123.6,98.8,123.6z M30,306.4    L52.4,97.2h39.2v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2    V97.2h110.4v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2V97.2    H270l22.4,209.2H30z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="figure-logo__description">
+                <div class="prod-name"><p>Alezandria</p></div>
+                <div class="prod-price">
+                  <ins><span class="money">399 EGP </span></ins>
+                  <del><span class="money">599 EGP </span></del>
+                </div>
+                <div class="colors">
+                  <div class="bage borderd"></div>
+                  <div class="gray"></div>
+                  <div class="pink "></div>
+                  <div class="black"></div>
+                </div>
+              </div>
+              <div class="add" >
+                <a class="button button_solid button_black mb-0-5" data-hover="add to cart" href="#">
+                  <span class="button__label-hover">
+                    Add to cart
+                  </span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="section-grid__item">
+            <div class="figure-logo bg-white">
+              <div class="figure">
+                <img class="image-main lozad" data-src="img/2.webp" srcset="img/2.webp" alt="Demo image 1">
+                <img class="image-hover lozad" data-src="img/product.webp" srcset="img/product.webp" alt="Demo image 2">
+                <div class="img-hover">
+                  <a class="wishlist" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class='first-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" d="m489.864 101.1a130.755 130.755 0 0 0 -60.164-50.89c-28.112-11.8-59.687-13.924-91.309-6.127-28.978 7.146-57.204 22.645-82.391 45.129-25.189-22.486-53.418-37.986-82.4-45.131-31.623-7.8-63.2-5.674-91.312 6.134a130.755 130.755 0 0 0 -60.161 50.9c-15.02 23.744-22.661 52.619-22.097 83.5 2.504 137.285 207.006 262.122 247.976 285.755a16 16 0 0 0 15.989 0c40.974-23.636 245.494-148.495 247.976-285.779.558-30.879-7.086-59.751-22.107-83.491zm-9.887 82.916c-.8 44.388-30.39 96.139-85.563 149.655-51.095 49.558-109.214 86.912-138.414 104.293-29.2-17.378-87.31-54.727-138.4-104.287-55.176-53.512-84.766-105.259-85.576-149.646-.884-48.467 22.539-87.462 62.656-104.313a106.644 106.644 0 0 1 41.511-8.238c36.795 0 75.717 17.812 108.4 51.046a16 16 0 0 0 22.815 0c45.406-46.17 102.85-62.573 149.9-42.811 40.121 16.845 63.547 55.834 62.671 104.298z" fill="currentColor" data-original="#000000"/></g></svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class='second-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" clip-rule="evenodd" d="m256 469.878c-86.27-49.763-253.779-170.182-255.971-290.334-2.395-131.178 145.05-190.67 255.971-77.883 110.905-112.771 258.343-53.318 255.971 77.86-2.171 120.16-169.697 240.59-255.971 290.357z" fill-rule="evenodd" fill="currentColor" data-original="#000000"/></g></svg>
+                  </a>
+                  <a class="view" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 511.992 511.992" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M510.096,249.937c-4.032-5.867-100.928-143.275-254.101-143.275C124.56,106.662,7.44,243.281,2.512,249.105    c-3.349,3.968-3.349,9.792,0,13.781C7.44,268.71,124.56,405.329,255.995,405.329S504.549,268.71,509.477,262.886    C512.571,259.217,512.848,253.905,510.096,249.937z M255.995,383.996c-105.365,0-205.547-100.48-230.997-128    c25.408-27.541,125.483-128,230.997-128c123.285,0,210.304,100.331,231.552,127.424    C463.013,282.065,362.256,383.996,255.995,383.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M255.995,170.662c-47.061,0-85.333,38.272-85.333,85.333s38.272,85.333,85.333,85.333s85.333-38.272,85.333-85.333    S303.056,170.662,255.995,170.662z M255.995,319.996c-35.285,0-64-28.715-64-64s28.715-64,64-64s64,28.715,64,64    S291.28,319.996,255.995,319.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                  <a class="add-to-cart" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 321.2 321.2" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M306.4,313.2l-24-223.6c-0.4-3.6-3.6-6.4-7.2-6.4h-44.4V69.6c0-38.4-31.2-69.6-69.6-69.6c-38.4,0-69.6,31.2-69.6,69.6    v13.6H46c-3.6,0-6.8,2.8-7.2,6.4l-24,223.6c-0.4,2,0.4,4,1.6,5.6c1.2,1.6,3.2,2.4,5.2,2.4h278c2,0,4-0.8,5.2-2.4    C306,317.2,306.8,315.2,306.4,313.2z M223.6,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4    C217.2,126.4,220,123.6,223.6,123.6z M106,69.6c0-30.4,24.8-55.2,55.2-55.2c30.4,0,55.2,24.8,55.2,55.2v13.6H106V69.6z     M98.8,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4C92.4,126.4,95.2,123.6,98.8,123.6z M30,306.4    L52.4,97.2h39.2v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2    V97.2h110.4v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2V97.2    H270l22.4,209.2H30z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="figure-logo__description">
+                <div class="prod-name"><p>WAVE sandal</p></div>
+                <div class="prod-price">
+                  <ins><span class="money">399 EGP </span></ins>
+                  <del><span class="money">599 EGP </span></del>
+                </div>
+                <div class="colors">
+                  <div class="bage borderd"></div>
+                  <div class="gray"></div>
+                  <div class="pink "></div>
+                  <div class="black"></div>
+                </div>
+              </div>
+              <div class="add" >
+                <a class="button button_solid button_black mb-0-5" data-hover="add to cart" href="#">
+                  <span class="button__label-hover">
+                    Add to cart
+                  </span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="section-grid__item">
+            <div class="figure-logo bg-white">
+              <div class="figure">
+                <img class="image-main lozad" data-src="img/product4.webp" srcset="img/product4.webp" alt="Demo image 1">
+                <img class="image-hover lozad" data-src="img/product5.webp" srcset="img/product5.webp" alt="Demo image 2">
+                <div class="img-hover">
+                  <a class="wishlist" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class='first-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" d="m489.864 101.1a130.755 130.755 0 0 0 -60.164-50.89c-28.112-11.8-59.687-13.924-91.309-6.127-28.978 7.146-57.204 22.645-82.391 45.129-25.189-22.486-53.418-37.986-82.4-45.131-31.623-7.8-63.2-5.674-91.312 6.134a130.755 130.755 0 0 0 -60.161 50.9c-15.02 23.744-22.661 52.619-22.097 83.5 2.504 137.285 207.006 262.122 247.976 285.755a16 16 0 0 0 15.989 0c40.974-23.636 245.494-148.495 247.976-285.779.558-30.879-7.086-59.751-22.107-83.491zm-9.887 82.916c-.8 44.388-30.39 96.139-85.563 149.655-51.095 49.558-109.214 86.912-138.414 104.293-29.2-17.378-87.31-54.727-138.4-104.287-55.176-53.512-84.766-105.259-85.576-149.646-.884-48.467 22.539-87.462 62.656-104.313a106.644 106.644 0 0 1 41.511-8.238c36.795 0 75.717 17.812 108.4 51.046a16 16 0 0 0 22.815 0c45.406-46.17 102.85-62.573 149.9-42.811 40.121 16.845 63.547 55.834 62.671 104.298z" fill="currentColor" data-original="#000000"/></g></svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class='second-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" clip-rule="evenodd" d="m256 469.878c-86.27-49.763-253.779-170.182-255.971-290.334-2.395-131.178 145.05-190.67 255.971-77.883 110.905-112.771 258.343-53.318 255.971 77.86-2.171 120.16-169.697 240.59-255.971 290.357z" fill-rule="evenodd" fill="currentColor" data-original="#000000"/></g></svg>
+                  </a>
+                  <a class="view" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 511.992 511.992" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M510.096,249.937c-4.032-5.867-100.928-143.275-254.101-143.275C124.56,106.662,7.44,243.281,2.512,249.105    c-3.349,3.968-3.349,9.792,0,13.781C7.44,268.71,124.56,405.329,255.995,405.329S504.549,268.71,509.477,262.886    C512.571,259.217,512.848,253.905,510.096,249.937z M255.995,383.996c-105.365,0-205.547-100.48-230.997-128    c25.408-27.541,125.483-128,230.997-128c123.285,0,210.304,100.331,231.552,127.424    C463.013,282.065,362.256,383.996,255.995,383.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M255.995,170.662c-47.061,0-85.333,38.272-85.333,85.333s38.272,85.333,85.333,85.333s85.333-38.272,85.333-85.333    S303.056,170.662,255.995,170.662z M255.995,319.996c-35.285,0-64-28.715-64-64s28.715-64,64-64s64,28.715,64,64    S291.28,319.996,255.995,319.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                  <a class="add-to-cart" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 321.2 321.2" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M306.4,313.2l-24-223.6c-0.4-3.6-3.6-6.4-7.2-6.4h-44.4V69.6c0-38.4-31.2-69.6-69.6-69.6c-38.4,0-69.6,31.2-69.6,69.6    v13.6H46c-3.6,0-6.8,2.8-7.2,6.4l-24,223.6c-0.4,2,0.4,4,1.6,5.6c1.2,1.6,3.2,2.4,5.2,2.4h278c2,0,4-0.8,5.2-2.4    C306,317.2,306.8,315.2,306.4,313.2z M223.6,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4    C217.2,126.4,220,123.6,223.6,123.6z M106,69.6c0-30.4,24.8-55.2,55.2-55.2c30.4,0,55.2,24.8,55.2,55.2v13.6H106V69.6z     M98.8,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4C92.4,126.4,95.2,123.6,98.8,123.6z M30,306.4    L52.4,97.2h39.2v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2    V97.2h110.4v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2V97.2    H270l22.4,209.2H30z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="figure-logo__description">
+                <div class="prod-name"><p>Alezandria</p></div>
+                <div class="prod-price">
+                  <ins><span class="money">399 EGP </span></ins>
+                  <del><span class="money">599 EGP </span></del>
+                </div>
+                <div class="colors">
+                  <div class="bage borderd"></div>
+                  <div class="gray"></div>
+                  <div class="pink "></div>
+                  <div class="black"></div>
+                </div>
+              </div>
+              <div class="add" >
+                <a class="button button_solid button_black mb-0-5" data-hover="add to cart" href="#">
+                  <span class="button__label-hover">
+                    Add to cart
+                  </span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="section-grid__item">
+            <div class="figure-logo bg-white">
+              <div class="figure">
+                <img class="image-main lozad" data-src="img/product4.webp" srcset="img/product4.webp" alt="Demo image 1">
+                <img class="image-hover lozad" data-src="img/product5.webp" srcset="img/product5.webp" alt="Demo image 2">
+                <div class="img-hover">
+                  <a class="wishlist" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" class='first-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" d="m489.864 101.1a130.755 130.755 0 0 0 -60.164-50.89c-28.112-11.8-59.687-13.924-91.309-6.127-28.978 7.146-57.204 22.645-82.391 45.129-25.189-22.486-53.418-37.986-82.4-45.131-31.623-7.8-63.2-5.674-91.312 6.134a130.755 130.755 0 0 0 -60.161 50.9c-15.02 23.744-22.661 52.619-22.097 83.5 2.504 137.285 207.006 262.122 247.976 285.755a16 16 0 0 0 15.989 0c40.974-23.636 245.494-148.495 247.976-285.779.558-30.879-7.086-59.751-22.107-83.491zm-9.887 82.916c-.8 44.388-30.39 96.139-85.563 149.655-51.095 49.558-109.214 86.912-138.414 104.293-29.2-17.378-87.31-54.727-138.4-104.287-55.176-53.512-84.766-105.259-85.576-149.646-.884-48.467 22.539-87.462 62.656-104.313a106.644 106.644 0 0 1 41.511-8.238c36.795 0 75.717 17.812 108.4 51.046a16 16 0 0 0 22.815 0c45.406-46.17 102.85-62.573 149.9-42.811 40.121 16.845 63.547 55.834 62.671 104.298z" fill="currentColor" data-original="#000000"/></g></svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class='second-heart' width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" clip-rule="evenodd" d="m256 469.878c-86.27-49.763-253.779-170.182-255.971-290.334-2.395-131.178 145.05-190.67 255.971-77.883 110.905-112.771 258.343-53.318 255.971 77.86-2.171 120.16-169.697 240.59-255.971 290.357z" fill-rule="evenodd" fill="currentColor" data-original="#000000"/></g></svg>
+                  </a>
+                  <a class="view" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 511.992 511.992" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M510.096,249.937c-4.032-5.867-100.928-143.275-254.101-143.275C124.56,106.662,7.44,243.281,2.512,249.105    c-3.349,3.968-3.349,9.792,0,13.781C7.44,268.71,124.56,405.329,255.995,405.329S504.549,268.71,509.477,262.886    C512.571,259.217,512.848,253.905,510.096,249.937z M255.995,383.996c-105.365,0-205.547-100.48-230.997-128    c25.408-27.541,125.483-128,230.997-128c123.285,0,210.304,100.331,231.552,127.424    C463.013,282.065,362.256,383.996,255.995,383.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M255.995,170.662c-47.061,0-85.333,38.272-85.333,85.333s38.272,85.333,85.333,85.333s85.333-38.272,85.333-85.333    S303.056,170.662,255.995,170.662z M255.995,319.996c-35.285,0-64-28.715-64-64s28.715-64,64-64s64,28.715,64,64    S291.28,319.996,255.995,319.996z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                  <a class="add-to-cart" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 321.2 321.2" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M306.4,313.2l-24-223.6c-0.4-3.6-3.6-6.4-7.2-6.4h-44.4V69.6c0-38.4-31.2-69.6-69.6-69.6c-38.4,0-69.6,31.2-69.6,69.6    v13.6H46c-3.6,0-6.8,2.8-7.2,6.4l-24,223.6c-0.4,2,0.4,4,1.6,5.6c1.2,1.6,3.2,2.4,5.2,2.4h278c2,0,4-0.8,5.2-2.4    C306,317.2,306.8,315.2,306.4,313.2z M223.6,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4    C217.2,126.4,220,123.6,223.6,123.6z M106,69.6c0-30.4,24.8-55.2,55.2-55.2c30.4,0,55.2,24.8,55.2,55.2v13.6H106V69.6z     M98.8,123.6c3.6,0,6.4,2.8,6.4,6.4c0,3.6-2.8,6.4-6.4,6.4c-3.6,0-6.4-2.8-6.4-6.4C92.4,126.4,95.2,123.6,98.8,123.6z M30,306.4    L52.4,97.2h39.2v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2    V97.2h110.4v13.2c-8,2.8-13.6,10.4-13.6,19.2c0,11.2,9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4c0-8.8-5.6-16.4-13.6-19.2V97.2    H270l22.4,209.2H30z" fill="currentColor" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="figure-logo__description">
+                <div class="prod-name"><p>Alezandria</p></div>
+                <div class="prod-price">
+                  <ins><span class="money">250 EGP </span></ins>
+                  <del><span class="money">399 EGP </span></del>
+                </div>
+                <div class="colors">
+                  <div class="bage borderd"></div>
+                  <div class="gray"></div>
+                  <div class="pink "></div>
+                  <div class="black"></div>
+                </div>
+              </div>
+              <div class="add" >
+                <a class="button button_solid button_black mb-0-5" data-hover="add to cart" href="#">
+                  <span class="button__label-hover">
+                    Add to cart
+                  </span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- slider FOOTER -->
+      <!-- <div class="container slider-testimonials__footer">
+        <div class="row justify-content-center align-items-center slider-testimonials__row no-gutters">
+          <div class="swiper-pagination">
+            <div class="row justify-content-center align-items-center slider-testimonials__row no-gutters">
+            <div class="col-auto">
+              <div class="slider__dots js-slider__dots">
+                <div class="slider__dot slider__dot_active">
+                  <svg class="svg-circle" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <circle class="circle" cx="30" cy="30" r="29" fill="none"></circle>
+                  </svg>
+                </div>
+                <div class="slider__dot">
+                  <svg class="svg-circle" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <circle class="circle" cx="30" cy="30" r="29" fill="none"></circle>
+                  </svg>
+                </div>
+                <div class="slider__dot">
+                  <svg class="svg-circle" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <circle class="circle" cx="30" cy="30" r="29" fill="none"></circle>
+                  </svg>
+                </div>
+                <div class="slider__dot">
+                  <svg class="svg-circle" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <circle class="circle" cx="30" cy="30" r="29" fill="none"></circle>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div> -->
+      
+      <div class="slider-testimonials__arrows container-fluid">
+        <div class="slider__arrow slider__arrow_left js-slider__arrow-prev">
+          <div class="arrow arrow-left js-arrow" data-arts-cursor="data-arts-cursor" data-arts-cursor-hide-native="true" data-arts-cursor-scale="0" data-arts-cursor-magnetic="data-arts-cursor-magnetic">
+            <svg class="svg-circle" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <circle class="circle" cx="30" cy="30" r="29" fill="none"></circle>
+            </svg>
+            <div class="arrow__pointer arrow-left__pointer"></div>
+            <div class="arrow__triangle"></div>
+          </div>
+        </div>
+        <div class="slider__arrow slider__arrow_right js-slider__arrow-next">
+          <div class="arrow arrow-right js-arrow" data-arts-cursor="data-arts-cursor" data-arts-cursor-hide-native="true" data-arts-cursor-scale="0" data-arts-cursor-magnetic="data-arts-cursor-magnetic">
+            <svg class="svg-circle" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <circle class="circle" cx="30" cy="30" r="29" fill="none"></circle>
+            </svg>
+            <div class="arrow__pointer arrow-right__pointer"></div>
+            <div class="arrow__triangle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- categories -->
+  <section class="section section-grid categories section-content overflow pt-xsmall pb-small" data-arts-os-animation="data-arts-os-animation" data-grid-columns="2" data-grid-tablet="2" data-grid-mobile="1" data-arts-theme-text="dark">
+    <div class="container-fluid">
+      <div class="row justify-content-between align-items-center section pb-small">
+        <div class="col-12 col-lg-auto">
+          <div class="section-grid__heading split-text js-split-text" data-split-text-type="lines,words" data-split-text-set="words">
+            <h2 class=" mt-0 mb-0">Shop by category</h2>
+          </div>
+          <div class="w-100"></div>
+          <div class="section__headline mt-1 mr-auto"></div>
+        </div>
+      </div>
+      <div class="grid js-grid">
+        <div class="grid__item grid__item_desktop-4 grid__item_tablet-6 grid__item_mobile-6 grid__item_fluid-4 grid__sizer js-grid__sizer"></div>
+        <div class="grid__item grid__item_desktop-4 grid__item_tablet-6 grid__item_mobile-6 grid__item_fluid-1 js-grid__item category-portraits">
+          <div class="section-grid__item">
+            <a class="figure-project hover-zoom js-change-text-hover" href="#">
+              <div class="hover-zoom__inner">
+                <div class="hover-zoom__zoom">
+                  <div class="figure-project__wrapper-img js-transition-img" data-arts-parallax="data-arts-parallax" data-arts-parallax-factor="0.15">
+                    <div class="lazy js-transition-img__transformed-el">
+                      <img data-src="img/second.webp" class='lozad' alt="Zee classics" width="380" height="565"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="figure-project__content pl-md-1 pt-md-1 pt-1 pl-0">
+                <h2 class="h3 figure-project__heading">Zee classics</h2>
+                <div class="figure-project__category mt-md-1 mt-0-5">
+                  <div class="change-text-hover small-caps js-change-text-hover change-text-hover_has-line text-left">
+                    <div class="change-text-hover__normal js-split-text split-text js-change-text-hover__normal" data-split-text-type="lines" data-split-text-set="lines">Shop now</div>
+                    <div class="change-text-hover__hover js-change-text-hover__hover">
+                      <div class="change-text-hover__line js-change-text-hover__line"></div>
+                      <span class="js-split-text split-text" data-split-text-type="lines" data-split-text-set="lines">View products</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="grid__item grid__item_desktop-4 grid__item_tablet-6 grid__item_mobile-6 grid__item_fluid-1 js-grid__item category-portraits">
+          <div class="section-grid__item">
+            <a class="figure-project hover-zoom js-change-text-hover" href="#">
+              <div class="hover-zoom__inner">
+                <div class="hover-zoom__zoom">
+                  <div class="figure-project__wrapper-img js-transition-img" data-arts-parallax="data-arts-parallax" data-arts-parallax-factor="0.15">
+                    <div class="lazy js-transition-img__transformed-el">
+                      <img data-src="img/prod1.webp" class='lozad' alt="EVA" width="380" height="565"/></div>
+                  </div>
+                </div>
+              </div>
+              <div class="figure-project__content pl-md-2 pt-md-1 pt-1 pl-0">
+                <h2 class="h3 figure-project__heading">EVA</h2>
+                <div class="figure-project__category mt-md-1 mt-0-5">
+                  <div class="change-text-hover small-caps js-change-text-hover change-text-hover_has-line text-left">
+                    <div class="change-text-hover__normal js-split-text split-text js-change-text-hover__normal" data-split-text-type="lines" data-split-text-set="lines">Shop now</div>
+                    <div class="change-text-hover__hover js-change-text-hover__hover">
+                      <div class="change-text-hover__line js-change-text-hover__line"></div>
+                      <span class="js-split-text split-text" data-split-text-type="lines" data-split-text-set="lines">View products</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="grid__item grid__item_desktop-4 grid__item_tablet-6 grid__item_mobile-6 grid__item_fluid-1 js-grid__item category-portraits">
+          <div class="section-grid__item">
+            <a class="figure-project hover-zoom js-change-text-hover" href="#">
+              <div class="hover-zoom__inner">
+                <div class="hover-zoom__zoom">
+                  <div class="figure-project__wrapper-img js-transition-img" data-arts-parallax="data-arts-parallax" data-arts-parallax-factor="0.15">
+                    <div class="lazy js-transition-img__transformed-el">
+                      <img data-src="img/wave.webp" class="lozad" alt="WAVE" width="380" height="565"/></div>
+                  </div>
+                </div>
+              </div>
+              <div class="figure-project__content pl-md-1 pt-md-1 pt-1 pl-0">
+                <h2 class="h3 figure-project__heading">WAVE</h2>
+                <div class="figure-project__category mt-md-1 mt-0-5">
+                  <div class="change-text-hover small-caps js-change-text-hover change-text-hover_has-line text-left">
+                    <div class="change-text-hover__normal js-split-text split-text js-change-text-hover__normal" data-split-text-type="lines" data-split-text-set="lines">Shop now</div>
+                    <div class="change-text-hover__hover js-change-text-hover__hover">
+                      <div class="change-text-hover__line js-change-text-hover__line"></div>
+                      <span class="js-split-text split-text" data-split-text-type="lines" data-split-text-set="lines">View products</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="grid__item grid__item_desktop-4 grid__item_tablet-6 grid__item_mobile-6 grid__item_fluid-1 js-grid__item category-portraits">
+          <div class="section-grid__item">
+            <a class="figure-project hover-zoom js-change-text-hover" href="#">
+              <div class="hover-zoom__inner">
+                <div class="hover-zoom__zoom">
+                  <div class="figure-project__wrapper-img js-transition-img" data-arts-parallax="data-arts-parallax" data-arts-parallax-factor="0.15">
+                    <div class="lazy js-transition-img__transformed-el">
+                      <img data-src="img/model.webp" class="lozad" alt="Brave new world" width="380" height="565"/></div>
+                  </div>
+                </div>
+              </div>
+              <div class="figure-project__content pl-md-1 pt-md-1 pt-1 pl-0">
+                <h2 class="h3 figure-project__heading">Brave new world</h2>
+                <div class="figure-project__category mt-md-1 mt-0-5">
+                  <div class="change-text-hover small-caps js-change-text-hover change-text-hover_has-line text-left">
+                    <div class="change-text-hover__normal js-split-text split-text js-change-text-hover__normal" data-split-text-type="lines" data-split-text-set="lines">Shop now</div>
+                    <div class="change-text-hover__hover js-change-text-hover__hover">
+                      <div class="change-text-hover__line js-change-text-hover__line"></div>
+                      <span class="js-split-text split-text" data-split-text-type="lines" data-split-text-set="lines">View products</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="grid__item grid__item_desktop-4 grid__item_tablet-6 grid__item_mobile-6 grid__item_fluid-1 js-grid__item category-portraits">
+          <div class="section-grid__item">
+            <a class="figure-project hover-zoom js-change-text-hover" href="#">
+              <div class="hover-zoom__inner">
+                <div class="hover-zoom__zoom">
+                  <div class="figure-project__wrapper-img js-transition-img" data-arts-parallax="data-arts-parallax" data-arts-parallax-factor="0.15">
+                    <div class="lazy js-transition-img__transformed-el">
+                      <img data-src="img/model2.webp" class="lozad" alt="DNA" width="380" height="565"/></div>
+                  </div>
+                </div>
+              </div>
+              <div class="figure-project__content pl-md-1 pt-md-1 pt-1 pl-0">
+                <h2 class="h3 figure-project__heading">DNA</h2>
+                <div class="figure-project__category mt-md-1 mt-0-5">
+                  <div class="change-text-hover small-caps js-change-text-hover change-text-hover_has-line text-left">
+                    <div class="change-text-hover__normal js-split-text split-text js-change-text-hover__normal" data-split-text-type="lines" data-split-text-set="lines">Shop now</div>
+                    <div class="change-text-hover__hover js-change-text-hover__hover">
+                      <div class="change-text-hover__line js-change-text-hover__line"></div>
+                      <span class="js-split-text split-text" data-split-text-type="lines" data-split-text-set="lines">View products</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="grid__item grid__item_desktop-4 grid__item_tablet-6 grid__item_mobile-6 grid__item_fluid-1 js-grid__item category-portraits">
+          <div class="section-grid__item">
+            <a class="figure-project hover-zoom js-change-text-hover" href="#">
+              <div class="hover-zoom__inner">
+                <div class="hover-zoom__zoom">
+                  <div class="figure-project__wrapper-img js-transition-img" data-arts-parallax="data-arts-parallax" data-arts-parallax-factor="0.15">
+                    <div class="lazy js-transition-img__transformed-el">
+
+                      <img data-src="img/arrival.gif" class="lozad" alt="New Arrivals" width="380" height="565"/></div>
+                  </div>
+                </div>
+              </div>
+              <div class="figure-project__content pl-md-1 pt-md-1 pt-1 pl-0">
+                <h2 class="h3 figure-project__heading">New Arrivals</h2>
+                <div class="figure-project__category mt-md-1 mt-0-5">
+                  <div class="change-text-hover small-caps js-change-text-hover change-text-hover_has-line text-left">
+                    <div class="change-text-hover__normal js-split-text split-text js-change-text-hover__normal" data-split-text-type="lines" data-split-text-set="lines">Shop now</div>
+                    <div class="change-text-hover__hover js-change-text-hover__hover">
+                      <div class="change-text-hover__line js-change-text-hover__line"></div>
+                      <span class="js-split-text split-text" data-split-text-type="lines" data-split-text-set="lines">View products</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- More Zee -->
+  <section class="section section-video section-content section-image js-gallery section-offset offset_bottom container-fluid bg-dark-1 pt-medium mb-small" data-arts-os-animation="data-arts-os-animation" data-grid-columns="1" data-grid-tablet="1" data-grid-mobile="1">
+      <div class="section-offset__content">
+        <header class="section-video__header pb-small">
+          <div class="row section">
+            <div class="col-12">
+              <div class="section-grid__heading split-text js-split-text" data-split-text-type="lines,words" data-split-text-set="words">
+                <h2 class=" mt-0 mb-0">More Zee</h1>
+              </div>
+              <div class="w-100"></div>
+              <div class="section__headline mt-1 mr-auto"></div>
+            </div>
+          </div>
+        
+        </header>
+        <div class="section-video__container section section_h-500 section-content__image">
+          <div class="section-video-desc">
+            <h3 class=" figure-project__heading">DNA Collection</h3>
+            <div class="add" >
+              <a class="button button_solid button_black mb-0-5" data-hover="Shop now" href="#">
+                <span class="button__label-hover">
+                  Shop now
+                </span></a>
+            </div>
+          </div>
+          <div class="section__bg">
+            <div class="section-image__wrapper" data-arts-parallax="data-arts-parallax" data-arts-parallax-factor="0.15">
+              <div>
+                <div class="lazy-bg" data-src="img/slider3.webp"></div>
+              </div>
+            </div>
+            <div class="overlay overlay_dark"></div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- About -->
+  <section class="section section-services section-content mb-small mt-medium" data-arts-os-animation="data-arts-os-animation">
+    <div class="container-fluid section-services__container">
+      <div class="row no-gutters align-items-center justify-content-center">
+        <div class="col-sm-12 col-lg-5 order-lg-1">
+          <div class="section-content__image overflow">
+            <div class="section-content__image-inner">
+              <section class="section section-image">
+                <div class="section-image__wrapper" data-arts-parallax="data-arts-parallax" data-arts-parallax-factor="0.15">
+                  <div class="lazy"><img data-src="img/slider2.webp" class="lozad" alt="zee" width="1920" height="1920"/></div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-5 order-lg-2">
+          <div class="section-services__wrapper-content">
+            <section class="section section-content clearfix container-fluid pt-md-0 pb-md-0 pt-small pr-md-0" data-arts-os-animation="data-arts-os-animation">
+              <div class="section-content__inner">
+                <div class="w-100"></div>
+                <div class="w-100"></div>
+                <div class="section-content__heading split-text js-split-text" data-split-text-type="lines,words" data-split-text-set="words">
+                  <h2>Zee Story</h2>
+                </div>
+                <div class="w-100"></div>
+                <div class="section-content__text split-text js-split-text mt-1" data-split-text-type="lines" data-split-text-set="lines">
+                  <p>Our daily physical contact point with earth is our feet. This contact grounds us, takes us forward, offers us potential and, above all, carries us with our dreams, ambitions, duties & experiences. Zee believes this contact, which we share as humans, should be all about comfort, ease, character, flexibility & freedom. Zee celebrates the freedom to express what’s possible in our lives.</p>
+                </div>
+                <div class="w-100"></div>
+                <div class="section-content__button mt-2">
+                  <a class="d-inline-block no-highlight" href="#">
+                    <div class="arrow arrow-right js-arrow" data-arts-cursor="data-arts-cursor" data-arts-cursor-hide-native="true" data-arts-cursor-scale="0" data-arts-cursor-magnetic="data-arts-cursor-magnetic">
+                      <svg class="svg-circle" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <circle class="circle" cx="30" cy="30" r="29" fill="none"></circle>
+                      </svg>
+                      <div class="arrow__pointer arrow-right__pointer"></div>
+                      <div class="arrow__triangle"></div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-services__wrapper-letter section-services__wrapper-letter_right">
+      <!-- <div class="section-services__letter" data-arts-parallax="element" data-arts-parallax-y="-30%">Zee</div> -->
+      <div class="section-services__letter js-split-text pointer-events-none" data-split-text-type="lines, words, chars">make <br />moves</div>
+    </div>
+  </section>
+
+  <!-- PAGE FOOTER -->
+  <footer class="footer container-fluid" id="page-footer" data-arts-theme-text="dark" data-arts-footer-logo="primary">
+    <div class="footer__area pt-md-5 pt-sm-3 pb-md-1 pb-sm-1 pt-2 pb-0">
+      <div class="row">
+        <div class="col-lg-3">
+          <section class="widget widget_cta">
+            <h2 class="h2 mt-0 mb-0-5">Don't miss out!</h2>
+            <form action="/Contact/AddNewContactFooter" data-ajax="true" data-ajax-begin="onbeginFooter" data-ajax-method="Post" data-ajax-mode="after" data-ajax-success="OnSuccessFooter" data-ajax-update="#successMsgFooter" id="form0" method="post">      
+              <input class="simple-input" value="" type="text" name="Email" required="" placeholder="Give us your email">                  
+              <button type="submit" class="transparent" name="submit"> 
+                <svg xmlns="http://www.w3.org/2000/svg" width='20' height="20" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><g xmlns="http://www.w3.org/2000/svg"><g><path d="M506.134,241.843c-0.006-0.006-0.011-0.013-0.018-0.019l-104.504-104c-7.829-7.791-20.492-7.762-28.285,0.068    c-7.792,7.829-7.762,20.492,0.067,28.284L443.558,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h423.557    l-70.162,69.824c-7.829,7.792-7.859,20.455-0.067,28.284c7.793,7.831,20.457,7.858,28.285,0.068l104.504-104    c0.006-0.006,0.011-0.013,0.018-0.019C513.968,262.339,513.943,249.635,506.134,241.843z" fill="currentColor" data-original="#000000" class=""/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+              </button>
+            </form>
+            <a class="button button_solid button_black mb-0-5" data-hover="Get in Touch" href="#">
+              <span class="button__label-hover">Get in Touch</span>
+            </a>
+            <section class="widget widget_social">
+              <ul class="social">
+                <li class="social__item">
+                  <a class="facebook" href="https://www.facebook.com/Zeeofficialeg/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' fill='#fff' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 48.605 48.605" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g xmlns="http://www.w3.org/2000/svg"><path d="M34.094,8.688h4.756V0.005h-8.643c-0.721-0.03-9.51-0.198-11.788,8.489c-0.033,0.091-0.761,2.157-0.761,6.983l-7.903,0.024   v9.107l7.913-0.023v24.021h12.087v-24h8v-9.131h-8v-2.873C29.755,10.816,30.508,8.688,34.094,8.688z M35.755,17.474v5.131h-8v24   h-8.087V22.579l-7.913,0.023v-5.107l7.934-0.023l-0.021-1.017c-0.104-5.112,0.625-7.262,0.658-7.365   c1.966-7.482,9.473-7.106,9.795-7.086l6.729,0.002v4.683h-2.756c-4.673,0-6.338,3.054-6.338,5.912v4.873L35.755,17.474   L35.755,17.474z" fill="currentColor" data-original="#000000"/></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+                  </a>
+                </li>
+                <li class="social__item">
+                  <a class="instagram" href="https://www.instagram.com/zee_officialeg/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width='20' height='20' fill='#fff' version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 512.00096 512.00096" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path xmlns="http://www.w3.org/2000/svg" d="m373.40625 0h-234.8125c-76.421875 0-138.59375 62.171875-138.59375 138.59375v234.816406c0 76.417969 62.171875 138.589844 138.59375 138.589844h234.816406c76.417969 0 138.589844-62.171875 138.589844-138.589844v-234.816406c0-76.421875-62.171875-138.59375-138.59375-138.59375zm108.578125 373.410156c0 59.867188-48.707031 108.574219-108.578125 108.574219h-234.8125c-59.871094 0-108.578125-48.707031-108.578125-108.574219v-234.816406c0-59.871094 48.707031-108.578125 108.578125-108.578125h234.816406c59.867188 0 108.574219 48.707031 108.574219 108.578125zm0 0" fill="currentColor" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m256 116.003906c-77.195312 0-139.996094 62.800782-139.996094 139.996094s62.800782 139.996094 139.996094 139.996094 139.996094-62.800782 139.996094-139.996094-62.800782-139.996094-139.996094-139.996094zm0 249.976563c-60.640625 0-109.980469-49.335938-109.980469-109.980469 0-60.640625 49.339844-109.980469 109.980469-109.980469 60.644531 0 109.980469 49.339844 109.980469 109.980469 0 60.644531-49.335938 109.980469-109.980469 109.980469zm0 0" fill="currentColor" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m399.34375 66.285156c-22.8125 0-41.367188 18.558594-41.367188 41.367188 0 22.8125 18.554688 41.371094 41.367188 41.371094s41.371094-18.558594 41.371094-41.371094-18.558594-41.367188-41.371094-41.367188zm0 52.71875c-6.257812 0-11.351562-5.09375-11.351562-11.351562 0-6.261719 5.09375-11.351563 11.351562-11.351563 6.261719 0 11.355469 5.089844 11.355469 11.351563 0 6.257812-5.09375 11.351562-11.355469 11.351562zm0 0" fill="currentColor" data-original="#000000" class=""/></g></svg>
+                  </a>
+                </li>
+              </ul>
+            </section>
+          </section>
+        </div>
+        <div class="col-lg-9 col-md-12">
+          <div class="row justify-content-lg-between">
+            <div class="col-lg-2 col-md-6">
+              <section class="widget widget_nav_menu">
+                <h2 class="widgettitle">shop by collection</h2>
+                <ul class="menu js-menu">
+                  <li><a href="#">Zee classics</a>
+                  </li>
+                  <li><a href="#">EVA</a>
+                  </li>
+                  <li><a href="#">WAVE</a>
+                  </li>
+                  <li><a href="#">Brave new world</a>
+                  </li>
+                  <li><a href="#">DNA</a>
+                  </li>
+                  <li><a href="#">All products</a>
+                  </li>
+                </ul>
+              </section>
+            </div>
+            <div class="col-lg-2 col-md-6">
+              <section class="widget widget_nav_menu">
+                <h2 class="widgettitle">collaborations</h2>
+                <ul class="menu js-menu">
+                  <li><a href="#">Kojak X Zee</a>
+                  </li>
+                  <li><a href="#">Gff X Zee</a>
+                  </li>
+                </ul>
+              </section>
+            </div>
+            <div class="col-lg-2 col-md-6">
+              <section class="widget widget_nav_menu">
+                <h2 class="widgettitle">collection story</h2>
+                <ul class="menu js-menu">
+                  <li><a href="#">DNA</a>
+                  </li>
+                  <li><a href="#">WAVE</a>
+                  </li>
+                  <li><a href="#">Brave new world</a>
+                  </li>
+                </ul>
+              </section>
+            </div>
+            <div class="col-lg-2 col-md-6">
+              <section class="widget widget_nav_menu">
+                <h2 class="widgettitle">Zee story</h2>
+                <ul class="menu js-menu">
+                  <li><a href="#">Zee story</a>
+                  </li>
+                  <li><a href="#">What we do</a>
+                  </li>
+                  <li><a href="#">Towards Sustainability</a>
+                  </li>
+                  <li><a href="#">How Zee Came To Be</a>
+                  </li>
+                  <li><a href="#">Behind Your Zees</a>
+                  </li>
+                </ul>
+              </section>
+            </div>
+            <div class="col-lg-2 col-md-6 ">
+              <section class="widget widget_nav_menu">
+                <h2 class="widgettitle">Policies</h2>
+                <ul class="menu js-menu">
+                  <li><a href="#">Size And Fit</a>
+                  </li>
+                  <li><a href="#">Shipping</a>
+                  </li>
+                  <li><a href="#">Guarantee</a>
+                  </li>
+                  <li><a href="#">Payment</a>
+                  </li>
+                  <li><a href="#">Track Order</a>
+                  </li>
+                  <li><a href="#">Returns & Exchanges</a>
+                  </li>
+                </ul>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- widgets bottom area -->
+  <div class="footer__area footer__area-border-top pt-sm-1 pb-sm-1 pt-2 pb-0">
+    <div class="container-fluid">
+      <div class="row align-items-center">
+        <div class="col-lg-6 footer__column text-center text-lg-left order-lg-1">
+          <section class="widget widget_bottom_logo">
+              <div class="app-img">
+                <img data-src='img/ssl-secure.png' alt='ZeeSSL' class="lozad"  width='75' height='33' />
+                <img data-src='img/mastercard.png' alt='ZeeMasterCard' class="lozad" width='75' height='33' />
+                <img data-src='img/aai.png' alt='Zeeaaib' class="lozad" width='75' height='33' />
+                <img data-src='img/visa.png' alt='Zeevisa' class="lozad" width='75' height='33' />
+              </div>
+          </section>
+        </div>
+        <div class="col-lg-6 footer__column text-center text-lg-center order-lg-2">
+          <section class="widget widget_text">
+            <div class="textwidget">
+              <p><small>Copyright © 2022 <a href="https://psdigital.me/" target="_blank">PSdigital</a> All rights reserved.</small></p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating shop now -->
+  <!-- <div class="section-demo__wrapper-button section-demo__wrapper-button_right d-none d-lg-flex">
+    <a class="circle-button circle-button_link js-circle-button" data-arts-cursor="data-arts-cursor" data-arts-cursor-hide-native="true" data-arts-cursor-scale="0" data-arts-cursor-magnetic="data-arts-cursor-magnetic" data-arts-cursor-icon="" href="#" target="_blank" data-arts-os-animation="true">
+    <div class="circle-button__outer">
+      <div class="circle-button__wrapper-label">
+        <div class="circle-button__label small-caps">
+          <span>Zee Shop now</span>
+        </div>
+      </div>
+    </div>
+    <div class="circle-button__inner">
+      <div class="circle-button__circle">
+        <svg class="svg-circle" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <circle class="circle" cx="30" cy="30" r="29" fill="none"></circle>
+        </svg>
+      </div>
+    </div>
+    </a>
+  </div> -->
+
+  <!-- Mobile menu -->
+  <section class="mobile-bottom-menu">
+    <div class="container">
+      <ul>
+        <li class="home_mobile-bottom-menu">
+          <a href="#">
+            <img src='img/home.svg' alt='home' class='home-mobile' />
+            <img src='img/home-fill.png' alt='home' class='home-mobile-active' />
+          </a>
+          <span>Home</span>
+        </li>
+        <li>
+          <a href="pages/shop.html">
+            <img src='img/category.png' alt='category' class='category-mobile' />
+            <img src='img/category-fill.png' alt='category' class='category-mobile-active' />
+          </a>
+          <span>Category</span>
+        </li>
+        <li>
+          <a href="#">
+            <!-- <img src='img/sale.png' alt='sale' class='sale-mobile' /> -->
+            <img src='img/sale-fill.png' alt='sale' class='sale-mobile-active' />
+          </a>
+          <span>Sale</span>
+        </li>
+        <li>
+          <a href="#" class="cart">
+            <span class="cart-products-count-btn">0</span>
+            <img src='img/cart.svg' alt='cart' class='cart-mobile' />
+            <img src='img/cart-fill.png' alt='cart' class='cart-mobile-active' />
+          </a>
+          <span>Cart</span>
+        </li>
+        <li>
+          <a href="#">
+            <img src='img/user.svg' alt='user' class='user-mobile' />
+            <img src='img/user-fill.png' alt='user' class='user-mobile-active' />
+          </a>
+          <span>Profile</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!--  SCRIPTS -->
+  <script type="text/javascript" src="js/jquery.js"></script>
+  
+  <script type="text/javascript" src="js/modernaize.js"></script>
+  <script  type="text/javascript" src="js/ScrollMagic.js"></script>
+  <script  type="text/javascript" src="js/imagesLoaded.js"></script>
+  <script  defer type="text/javascript" src="js/splitText.js"></script>
+  <script defer type="text/javascript" src="js/Isotope.js"></script>
+  <script  type="text/javascript" src="js/vendor.js"></script>
+
+  <script defer type="text/javascript" src="js/components.js"></script>
+  <script type="text/javascript" src="js/swiper-bundle.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script defer type="text/javascript" src="js/lozad.min.js"></script>
+  
+  <script defer type="text/javascript">
+    jQuery.event.special.touchstart = {
+        setup: function (_, ns, handle) {
+            this.addEventListener("touchstart", handle, { passive: !ns.includes("noPreventDefault") });
+        }
+    };
+    jQuery.event.special.touchmove = {
+        setup: function (_, ns, handle) {
+            this.addEventListener("touchmove", handle, { passive: !ns.includes("noPreventDefault") });
+        }
+    };
+  </script>
+  <script type="text/javascript">
+    (async () => {
+      const observer = await lozad();
+      await observer.observe();
+    })();
+
+    var swiper = new Swiper(".mySwiper", {
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: true,
+    },   
+    cssMode: true,
+    navigation: {
+      nextEl: ".slider__arrow_right",
+      prevEl: ".slider__arrow_left",
+    },            
+    slidesToScroll: 1,
+    breakpoints: {
+    320: {
+      slidesPerView: 2,
+      spaceBetween: 5,
+      pagination: false
+    },
+    425: {
+      slidesPerView: 2,
+      spaceBetween: 10
+    },
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 25
+    },
+    1100: {
+      slidesPerView: 4,
+      spaceBetween: 25
+    },
+    1400: {
+      slidesPerView: 4,
+      spaceBetween: 25
+    },
+    },
+    on: {
+      init() {
+        this.el.addEventListener('mouseenter', () => {
+          this.autoplay.stop();
+        });
+
+        this.el.addEventListener('mouseleave', () => {
+          this.autoplay.start();
+        });
+      }
+    },
+  });
+	</script>
+  
+
+
+</body>
+</html>

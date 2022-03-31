@@ -1,0 +1,70 @@
+.mobile-bottom-menu{
+    display: none;
+}
+.mobile-bottom-menu ul{
+    list-style: none;
+    display: inline-flex;
+    padding-left: 0;
+    margin: 0;
+    width: 100%
+}
+.mobile-bottom-menu .container{
+    padding-right: 0px;
+    padding-left: 0px
+}
+.mobile-bottom-menu ul li{
+    font-size: 13px;
+    display: grid;
+    text-align: center;
+    width: 25%;
+}
+.mobile-bottom-menu ul a{
+    position: relative;
+    margin: auto;
+    width: 25px;
+    height: 25px;
+}
+.mobile-bottom-menu .cart-products-count-btn{
+    background: #000;
+    width: 15px;
+    height: 15px;
+    font-size: 11px;
+    border-radius: 50%;
+    color: #fff;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: -3px;
+    top: -3px;
+}
+.mobile-bottom-menu ul a img:first-of-type{
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+.mobile-bottom-menu ul a img:nth-of-type(2){
+    position: absolute;
+    top: 5px;
+    display: block;
+    right: 3px;
+    width: 20px;
+    height: 20px;
+    opacity: 0
+}
+.mobile-bottom-menu li.fill-icon img:first-of-type{opacity: 0;}
+.mobile-bottom-menu li.fill-icon img:nth-of-type(2){opacity: 1;}
+
+@media screen and (max-width: 990px){
+    .mobile-bottom-menu{
+        display: inline-flex;
+        border-top: 1px solid #000;
+        justify-content: center;
+        width: 100%;
+        align-items: center;
+        position: fixed;
+        background: #fff;
+        z-index: 89;
+        bottom: 0;
+    }
+}

@@ -1,0 +1,11 @@
+.landing-shadow-4 {
+    box-shadow: 0px 20px 50px -5px rgb(149 164 175 / 40%);
+}
+.img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.collapse:not(.show) {
+    display: none;
+}
